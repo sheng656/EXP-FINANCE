@@ -31,8 +31,9 @@ export const COMPANY_INFO = {
   
   stats: {
     experience: '10+',
-    clientsServed: '1000+',
-    volumeH1_2025: '5000万',
+    clientsServed: '1000+*',
+    satisfaction: '95%*',
+    volumeH1_2025: '5000万*',
     teamSize: '4'
   }
 };

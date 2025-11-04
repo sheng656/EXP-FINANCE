@@ -8,8 +8,18 @@ export function Hero() {
 
   return (
     <section id="home" className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0">
+        <img 
+          src="https://images.unsplash.com/photo-1758523671637-5a39ea2c129b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoYXBweSUyMGZhbWlseSUyMGhvbWUlMjBwcm9wZXJ0eXxlbnwxfHx8fDE3NjIyMjc0NjJ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+          alt="Happy family home"
+          className="w-full h-full object-cover opacity-20"
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-900/90 via-gray-800/85 to-gray-900/90" />
+      </div>
+
       {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
+      <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0" style={{
           backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
           backgroundSize: '40px 40px'
@@ -99,7 +109,7 @@ export function Hero() {
           {/* Trust Indicators */}
           <div className="mt-16 pt-8 border-t border-white/10">
             <p className="text-sm text-gray-400 mb-4">
-              {locale === 'zh' ? '合作银行' : 'Partner Banks'}
+              {locale === 'zh' ? '主要合作银行' : 'Major Partner Banks'}
             </p>
             <div className="flex flex-wrap items-center justify-center gap-8 opacity-50">
               <div className="text-sm">ANZ</div>

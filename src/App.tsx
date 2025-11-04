@@ -8,6 +8,7 @@ import { ServicesSection } from './components/sections/ServicesSection';
 import { BlogSection } from './components/sections/BlogSection';
 import { ContactSection } from './components/sections/ContactSection';
 import { FloatingActionBar } from './components/cta/FloatingActionBar';
+import { BackToTop } from './components/cta/BackToTop';
 import { ComplianceDisclaimer } from './components/compliance/ComplianceDisclaimer';
 
 export default function App() {
@@ -49,8 +50,11 @@ export default function App() {
         {/* Footer */}
         <Footer />
 
-        {/* Floating Action Bar (Mobile) */}
+        {/* Floating Action Bar */}
         <FloatingActionBar />
+
+        {/* Back to Top Button */}
+        <BackToTop />
       </div>
     </I18nProvider>
   );

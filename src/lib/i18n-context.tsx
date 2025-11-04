@@ -28,10 +28,13 @@ const translations = {
     
     // CTA
     'cta.contact': '立即咨询',
+    'cta.contactUs': '联系我们',
     'cta.call': '电话咨询',
     'cta.wechat': '添加微信',
     'cta.email': '邮件咨询',
     'cta.learnMore': '了解更多',
+    'cta.xiaohongshu': '关注小红书',
+    'cta.backToTop': '返回顶部',
     
     // Team
     'team.title': '我们的团队',
@@ -54,6 +57,14 @@ const translations = {
     'legal.disclosure': '公开披露',
     'legal.complaints': '投诉流程',
     'legal.dataNotes': '数据口径说明',
+    
+    // Data Notes
+    'dataNotes.title': '数据口径说明',
+    'dataNotes.clientsServed': '服务家庭数：基于2015年至今的累计成交客户统计',
+    'dataNotes.satisfaction': '客户满意度：基于客户反馈调查及推荐率统计',
+    'dataNotes.volume': '成交金额：基于2025年上半年实际成交金额统计',
+    'dataNotes.savings': '节省金额：基于客户实际利率优化案例的平均值',
+    'dataNotes.disclaimer': '以上数据仅供参考，实际情况可能因个人条件而异',
     
     // Compliance
     'compliance.notAdvice': '本网站提供的信息仅供一般参考，不构成财务建议',
@@ -89,10 +100,13 @@ const translations = {
     
     // CTA
     'cta.contact': 'Get Started',
+    'cta.contactUs': 'Contact Us',
     'cta.call': 'Call Now',
     'cta.wechat': 'WeChat',
     'cta.email': 'Email Us',
     'cta.learnMore': 'Learn More',
+    'cta.xiaohongshu': 'Follow on RED',
+    'cta.backToTop': 'Back to Top',
     
     // Team
     'team.title': 'Our Team',
@@ -115,6 +129,14 @@ const translations = {
     'legal.disclosure': 'Public Disclosure',
     'legal.complaints': 'Complaint Process',
     'legal.dataNotes': 'Data Methodology',
+    
+    // Data Notes
+    'dataNotes.title': 'Data Methodology',
+    'dataNotes.clientsServed': 'Families Served: Cumulative clients since 2015',
+    'dataNotes.satisfaction': 'Client Satisfaction: Based on customer surveys and referral rates',
+    'dataNotes.volume': 'Transaction Volume: Based on actual settlements in H1 2025',
+    'dataNotes.savings': 'Savings Amount: Average based on actual rate optimization cases',
+    'dataNotes.disclaimer': 'Data shown are for reference only; actual results may vary based on individual circumstances',
     
     // Compliance
     'compliance.notAdvice': 'General information only; not financial advice',

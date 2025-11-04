@@ -16,7 +16,7 @@ const advantages = {
     {
       icon: TrendingUp,
       title: '优化利率',
-      description: '对比30+银行产品，为您争取最优利率，每年节省数千元'
+      description: '对比新西兰各大银行产品，为您争取最优利率，每年节省数千元*'
     },
     {
       icon: Clock,
@@ -26,7 +26,7 @@ const advantages = {
     {
       icon: Award,
       title: '成功案例',
-      description: '10年行业经验，服务1000+家庭，95%客户满意度'
+      description: '10+年行业经验，服务1000+*家庭，95%*客户满意度'
     },
     {
       icon: Heart,
@@ -48,7 +48,7 @@ const advantages = {
     {
       icon: TrendingUp,
       title: 'Best Rates',
-      description: 'Compare 30+ bank products to secure the best rates, save thousands annually'
+      description: 'Compare all major NZ bank products to secure the best rates, save thousands annually*'
     },
     {
       icon: Clock,
@@ -58,7 +58,7 @@ const advantages = {
     {
       icon: Award,
       title: 'Proven Track Record',
-      description: '10 years experience, 1000+ families served, 95% client satisfaction'
+      description: '10+ years experience, 1000+* families served, 95%* client satisfaction'
     },
     {
       icon: Heart,
@@ -89,20 +89,20 @@ export function AdvantagesSection() {
         </div>
 
         {/* Advantages Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-8 max-w-6xl mx-auto">
           {items.map((item, index) => {
             const Icon = item.icon;
             
             return (
               <div 
                 key={index}
-                className="bg-white rounded-xl p-8 hover:shadow-xl transition-all hover:-translate-y-1"
+                className="bg-white rounded-lg md:rounded-xl p-4 md:p-8 hover:shadow-xl transition-all hover:-translate-y-1"
               >
-                <div className="w-14 h-14 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-lg flex items-center justify-center mb-6">
-                  <Icon className="w-7 h-7 text-white" />
+                <div className="w-10 h-10 md:w-14 md:h-14 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-lg flex items-center justify-center mb-3 md:mb-6">
+                  <Icon className="w-5 h-5 md:w-7 md:h-7 text-white" />
                 </div>
-                <h3 className="mb-3">{item.title}</h3>
-                <p className="text-gray-600">{item.description}</p>
+                <h3 className="mb-2 md:mb-3">{item.title}</h3>
+                <p className="text-gray-600 text-sm md:text-base">{item.description}</p>
               </div>
             );
           })}
@@ -110,7 +110,7 @@ export function AdvantagesSection() {
 
         {/* Stats Bar */}
         <div className="mt-16 bg-gradient-to-r from-gray-900 to-gray-800 rounded-2xl p-8 md:p-12">
-          <div className="grid md:grid-cols-4 gap-8 text-center text-white">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-8 text-center text-white">
             <div>
               <div className="text-4xl mb-2 bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">
                 10+
@@ -121,7 +121,7 @@ export function AdvantagesSection() {
             </div>
             <div>
               <div className="text-4xl mb-2 bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">
-                1000+
+                1000+*
               </div>
               <div className="text-sm text-gray-300">
                 {locale === 'zh' ? '服务家庭' : 'Families Served'}
@@ -129,18 +129,10 @@ export function AdvantagesSection() {
             </div>
             <div>
               <div className="text-4xl mb-2 bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">
-                95%
+                95%*
               </div>
               <div className="text-sm text-gray-300">
                 {locale === 'zh' ? '客户满意度' : 'Client Satisfaction'}
-              </div>
-            </div>
-            <div>
-              <div className="text-4xl mb-2 bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">
-                30+
-              </div>
-              <div className="text-sm text-gray-300">
-                {locale === 'zh' ? '合作银行' : 'Partner Banks'}
               </div>
             </div>
           </div>

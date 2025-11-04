@@ -99,6 +99,25 @@ export function ContactSection() {
                   </div>
                 </button>
 
+                <a
+                  href={COMPANY_INFO.social.xiaohongshu}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-start gap-4 p-4 rounded-lg hover:bg-gray-50 transition"
+                >
+                  <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <MessageCircle className="w-6 h-6 text-red-600" />
+                  </div>
+                  <div>
+                    <div className="font-medium mb-1">
+                      {locale === 'zh' ? '关注小红书' : 'Follow on RED'}
+                    </div>
+                    <div className="text-gray-600 text-sm">
+                      {locale === 'zh' ? '获取最新贷款资讯' : 'Get latest updates'}
+                    </div>
+                  </div>
+                </a>
+
                 <div className="flex items-start gap-4 p-4">
                   <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0">
                     <MapPin className="w-6 h-6 text-gray-600" />

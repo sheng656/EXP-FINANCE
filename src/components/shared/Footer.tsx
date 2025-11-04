@@ -121,6 +121,32 @@ export function Footer() {
             </div>
           </div>
         </div>
+
+        {/* Data Methodology */}
+        <div id="data-notes" className="border-t border-gray-800 pt-8 mb-8">
+          <h4 className="mb-4 text-center">{t('dataNotes.title')}</h4>
+          <div className="grid md:grid-cols-2 gap-4 text-sm text-gray-400">
+            <div>
+              <span className="text-yellow-400">* </span>
+              {t('dataNotes.clientsServed')}
+            </div>
+            <div>
+              <span className="text-yellow-400">* </span>
+              {t('dataNotes.satisfaction')}
+            </div>
+            <div>
+              <span className="text-yellow-400">* </span>
+              {t('dataNotes.volume')}
+            </div>
+            <div>
+              <span className="text-yellow-400">* </span>
+              {t('dataNotes.savings')}
+            </div>
+          </div>
+          <p className="text-xs text-gray-500 italic text-center mt-6">
+            {t('dataNotes.disclaimer')}
+          </p>
+        </div>
         
         {/* Copyright */}
         <div className="text-center text-sm text-gray-500">

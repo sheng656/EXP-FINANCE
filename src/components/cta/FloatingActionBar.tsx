@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Phone, MessageCircle, Mail, X, Plus } from 'lucide-react';
+import { Phone, MessageCircle, Mail, X, MessageSquare } from 'lucide-react';
 import { Button } from '../ui/button';
 import { useI18n } from '../../lib/i18n-context';
 import { COMPANY_INFO } from '../../lib/company-data';
@@ -8,8 +8,14 @@ export function FloatingActionBar() {
   const { locale, t } = useI18n();
   const [isExpanded, setIsExpanded] = useState(false);
 
+  const scrollToContact = () => {
+    setIsExpanded(false);
+    const contactSection = document.getElementById('contact');
+    contactSection?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
-    <div className="fixed bottom-6 right-6 z-50 md:hidden">
+    <div className="fixed bottom-6 right-6 z-50">
       
       {/* Expanded Menu */}
       {isExpanded && (
@@ -21,7 +27,7 @@ export function FloatingActionBar() {
               setIsExpanded(false);
               // Open WeChat modal
             }}
-            className="w-full bg-green-500 hover:bg-green-600 text-white shadow-lg flex items-center justify-center gap-2 h-12"
+            className="w-full bg-green-500 hover:bg-green-600 text-white shadow-lg flex items-center justify-center gap-2 h-12 min-w-[160px]"
           >
             <MessageCircle className="w-5 h-5" />
             <span>{t('cta.wechat')}</span>
@@ -38,13 +44,9 @@ export function FloatingActionBar() {
             </a>
           </Button>
 
-          {/* Email */}
+          {/* Email - Navigate to Contact Form */}
           <Button
-            onClick={() => {
-              setIsExpanded(false);
-              const contactSection = document.getElementById('contact');
-              contactSection?.scrollIntoView({ behavior: 'smooth' });
-            }}
+            onClick={scrollToContact}
             variant="outline"
             className="w-full bg-white shadow-lg flex items-center justify-center gap-2 h-12 border-2"
           >
@@ -58,16 +60,19 @@ export function FloatingActionBar() {
       <Button
         onClick={() => setIsExpanded(!isExpanded)}
         size="lg"
-        className={`w-14 h-14 rounded-full shadow-2xl transition-all ${
+        className={`h-14 rounded-full shadow-2xl transition-all px-6 ${
           isExpanded 
             ? 'bg-gray-800 hover:bg-gray-900' 
-            : 'bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700'
+            : 'bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-gray-900'
         }`}
       >
         {isExpanded ? (
           <X className="w-6 h-6" />
         ) : (
-          <Plus className="w-6 h-6 text-gray-900" />
+          <div className="flex items-center gap-2">
+            <MessageSquare className="w-5 h-5" />
+            <span className="font-medium">{t('cta.contactUs')}</span>
+          </div>
         )}
       </Button>
     </div>
