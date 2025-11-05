@@ -3,6 +3,7 @@ import { Header } from './components/shared/Header';
 import { Footer } from './components/shared/Footer';
 import { Hero } from './components/sections/Hero';
 import { AdvantagesSection } from './components/sections/AdvantagesSection';
+import { PartnersSection } from './components/sections/PartnersSection';
 import { TeamSection } from './components/sections/TeamSection';
 import { ServicesSection } from './components/sections/ServicesSection';
 import { BlogSection } from './components/sections/BlogSection';
@@ -38,6 +39,9 @@ export default function App() {
 
           {/* Contact Section */}
           <ContactSection />
+
+          {/* Partners Section */}
+          <PartnersSection />
 
           {/* Global Compliance Disclaimer */}
           <div className="bg-gray-50 py-8">

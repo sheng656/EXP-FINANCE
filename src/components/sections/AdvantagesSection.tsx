@@ -1,4 +1,4 @@
-import { Shield, Users, TrendingUp, Clock, Award, Heart } from 'lucide-react';
+import { Shield, Users, TrendingUp, Clock, Award, Heart, Building2 } from 'lucide-react';
 import { useI18n } from '../../lib/i18n-context';
 
 const advantages = {
@@ -7,6 +7,11 @@ const advantages = {
       icon: Shield,
       title: '专业持牌',
       description: '所有顾问持FSP执照，受FMA监管，专业资质有保障'
+    },
+    {
+      icon: Building2,
+      title: '25+合作金融机构',
+      description: '合作主流银行及非银行贷款机构，为您提供更多选择和最优方案'
     },
     {
       icon: Users,
@@ -26,7 +31,7 @@ const advantages = {
     {
       icon: Award,
       title: '成功案例',
-      description: '10+年行业经验，服务1000+*家庭，95%*客户满意度'
+      description: '10+年行业经验，服务1000+*家庭，专业口碑有保障'
     },
     {
       icon: Heart,
@@ -39,6 +44,11 @@ const advantages = {
       icon: Shield,
       title: 'Licensed Professionals',
       description: 'All advisors are FSP licensed and FMA regulated with proven credentials'
+    },
+    {
+      icon: Building2,
+      title: '25+ Financial Partners',
+      description: 'Access to major banks and non-bank lenders for more options and best solutions'
     },
     {
       icon: Users,
@@ -58,7 +68,7 @@ const advantages = {
     {
       icon: Award,
       title: 'Proven Track Record',
-      description: '10+ years experience, 1000+* families served, 95%* client satisfaction'
+      description: '10+ years experience, 1000+* families served, trusted professional reputation'
     },
     {
       icon: Heart,
@@ -89,50 +99,73 @@ export function AdvantagesSection() {
         </div>
 
         {/* Advantages Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-8 max-w-6xl mx-auto">
-          {items.map((item, index) => {
-            const Icon = item.icon;
-            
-            return (
-              <div 
-                key={index}
-                className="bg-white rounded-lg md:rounded-xl p-4 md:p-8 hover:shadow-xl transition-all hover:-translate-y-1"
-              >
-                <div className="w-10 h-10 md:w-14 md:h-14 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-lg flex items-center justify-center mb-3 md:mb-6">
-                  <Icon className="w-5 h-5 md:w-7 md:h-7 text-white" />
+        <div className="max-w-6xl mx-auto">
+          {/* First row with 4 items on desktop, 2 on mobile */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-6 mb-3 md:mb-6">
+            {items.slice(0, 4).map((item, index) => {
+              const Icon = item.icon;
+              
+              return (
+                <div 
+                  key={index}
+                  className="bg-white rounded-lg md:rounded-xl p-4 md:p-8 hover:shadow-xl transition-all hover:-translate-y-1"
+                >
+                  <div className="w-10 h-10 md:w-14 md:h-14 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-lg flex items-center justify-center mb-3 md:mb-6">
+                    <Icon className="w-5 h-5 md:w-7 md:h-7 text-white" />
+                  </div>
+                  <h3 className="mb-2 md:mb-3">{item.title}</h3>
+                  <p className="text-gray-600 text-sm md:text-base">{item.description}</p>
                 </div>
-                <h3 className="mb-2 md:mb-3">{item.title}</h3>
-                <p className="text-gray-600 text-sm md:text-base">{item.description}</p>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
+          
+          {/* Second row with 3 items centered */}
+          <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 md:gap-6 lg:max-w-4xl lg:mx-auto">
+            {items.slice(4).map((item, index) => {
+              const Icon = item.icon;
+              
+              return (
+                <div 
+                  key={index + 4}
+                  className="bg-white rounded-lg md:rounded-xl p-4 md:p-8 hover:shadow-xl transition-all hover:-translate-y-1"
+                >
+                  <div className="w-10 h-10 md:w-14 md:h-14 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-lg flex items-center justify-center mb-3 md:mb-6">
+                    <Icon className="w-5 h-5 md:w-7 md:h-7 text-white" />
+                  </div>
+                  <h3 className="mb-2 md:mb-3">{item.title}</h3>
+                  <p className="text-gray-600 text-sm md:text-base">{item.description}</p>
+                </div>
+              );
+            })}
+          </div>
         </div>
 
         {/* Stats Bar */}
         <div className="mt-16 bg-gradient-to-r from-gray-900 to-gray-800 rounded-2xl p-8 md:p-12">
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-8 text-center text-white">
+          <div className="grid grid-cols-3 gap-4 md:gap-12 text-center text-white max-w-4xl mx-auto">
             <div>
-              <div className="text-4xl mb-2 bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">
+              <div className="text-3xl md:text-4xl mb-2 bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">
                 10+
               </div>
-              <div className="text-sm text-gray-300">
+              <div className="text-xs md:text-sm text-gray-300">
                 {locale === 'zh' ? '年行业经验' : 'Years Experience'}
               </div>
             </div>
             <div>
-              <div className="text-4xl mb-2 bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">
+              <div className="text-3xl md:text-4xl mb-2 bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">
                 1000+*
               </div>
-              <div className="text-sm text-gray-300">
+              <div className="text-xs md:text-sm text-gray-300">
                 {locale === 'zh' ? '服务家庭' : 'Families Served'}
               </div>
             </div>
             <div>
-              <div className="text-4xl mb-2 bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">
-                95%*
+              <div className="text-3xl md:text-4xl mb-2 bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">
+                25+
               </div>
-              <div className="text-sm text-gray-300">
-                {locale === 'zh' ? '客户满意度' : 'Client Satisfaction'}
+              <div className="text-xs md:text-sm text-gray-300">
+                {locale === 'zh' ? '合作金融机构' : 'Financial Partners'}
               </div>
             </div>
           </div>

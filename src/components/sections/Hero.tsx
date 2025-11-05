@@ -105,20 +105,6 @@ export function Hero() {
               <ArrowRight className="w-5 h-5 ml-2" />
             </Button>
           </div>
-
-          {/* Trust Indicators */}
-          <div className="mt-16 pt-8 border-t border-white/10">
-            <p className="text-sm text-gray-400 mb-4">
-              {locale === 'zh' ? '主要合作银行' : 'Major Partner Banks'}
-            </p>
-            <div className="flex flex-wrap items-center justify-center gap-8 opacity-50">
-              <div className="text-sm">ANZ</div>
-              <div className="text-sm">ASB</div>
-              <div className="text-sm">BNZ</div>
-              <div className="text-sm">Westpac</div>
-              <div className="text-sm">Kiwibank</div>
-            </div>
-          </div>
         </div>
       </div>
     </section>
