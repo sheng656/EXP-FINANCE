@@ -1,3 +1,9 @@
+
+
+
+
+
+
 import { useState, useEffect, useRef } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useI18n } from '../../lib/i18n-context';
