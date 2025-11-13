@@ -84,9 +84,12 @@ export function Hero() {
             <Button 
               size="lg"
               className="bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-gray-900 shadow-lg shadow-yellow-500/50"
+              asChild
             >
-              <Phone className="w-5 h-5 mr-2" />
-              {t('cta.call')}
+              <a href="tel:0223145326">
+                <Phone className="w-5 h-5 mr-2" />
+                {t('cta.call')}
+              </a>
             </Button>
             <Button 
               size="lg"
@@ -100,9 +103,12 @@ export function Hero() {
               size="lg"
               variant="ghost"
               className="text-white hover:bg-white/10 hover:text-yellow-400"
+              asChild
             >
-              {t('hero.cta.secondary')}
-              <ArrowRight className="w-5 h-5 ml-2" />
+              <a href="#contact">
+                {t('hero.cta.secondary')}
+                <ArrowRight className="w-5 h-5 ml-2" />
+              </a>
             </Button>
           </div>
         </div>

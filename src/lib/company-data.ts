@@ -11,8 +11,8 @@ export const COMPANY_INFO = {
   established: '2015',
   
   contact: {
-    phone: '020 446 6883',
-    email: 'info@expfinance.co.nz',
+    phone: '022 314 5326',
+    email: 'hello@expfin.co.nz',
     address: {
       zh: '新西兰奥克兰',
       en: 'Auckland, New Zealand'

@@ -26,21 +26,21 @@ export function Header() {
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap items-center justify-between py-2 gap-4">
             <div className="flex items-center gap-6">
-              <a href="tel:0204466883" className="flex items-center gap-2 hover:text-yellow-400 transition text-sm">
-                <Phone className="w-4 h-4" />
-                <span className="hidden sm:inline">020 446 6883</span>
+              <a href="tel:0223145326" className="flex items-center gap-2 hover:text-yellow-400 transition text-base font-medium">
+                <Phone className="w-5 h-5" />
+                <span className="hidden sm:inline">022 314 5326</span>
               </a>
-              <a href="mailto:info@expfinance.co.nz" className="flex items-center gap-2 hover:text-yellow-400 transition text-sm">
-                <Mail className="w-4 h-4" />
-                <span className="hidden sm:inline">info@expfinance.co.nz</span>
+              <a href="mailto:hello@expfin.co.nz" className="flex items-center gap-2 hover:text-yellow-400 transition text-base font-medium">
+                <Mail className="w-5 h-5" />
+                <span className="hidden sm:inline">hello@expfin.co.nz</span>
               </a>
             </div>
             
             <button
               onClick={() => setLocale(locale === 'zh' ? 'en' : 'zh')}
-              className="flex items-center gap-2 hover:text-yellow-400 transition text-sm"
+              className="flex items-center gap-2 hover:text-yellow-400 transition text-base font-medium"
             >
-              <Globe className="w-4 h-4" />
+              <Globe className="w-5 h-5" />
               {locale === 'zh' ? 'English' : '中文'}
             </button>
           </div>
