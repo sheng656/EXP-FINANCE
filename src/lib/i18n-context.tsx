@@ -21,8 +21,8 @@ const translations = {
     'nav.legal': '法律与合规',
     
     // Hero
-    'hero.title': '专业、真诚，帮你省钱、赚钱、安心买房',
-    'hero.subtitle': '奥克兰华人贷款专家 · 10年+经验 · 服务1000+家庭',
+    'hero.title': '专业、真诚，帮您安心买房',
+    'hero.subtitle': '新西兰华人贷款专家 · 10年+经验 · 服务1000+家庭',
     'hero.cta.primary': '立即咨询',
     'hero.cta.secondary': '了解更多',
     

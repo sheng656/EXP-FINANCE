@@ -36,44 +36,44 @@ export function Hero() {
           {/* Badge */}
           <div className="inline-flex items-center gap-2 bg-yellow-500/10 border border-yellow-500/20 rounded-full px-4 py-2 mb-8">
             <span className="w-2 h-2 bg-yellow-400 rounded-full animate-pulse" />
-            <span className="text-sm text-yellow-200">
-              {locale === 'zh' ? '奥克兰华人贷款专家' : 'Auckland Mortgage Specialists'}
+            <span className="text-sm text-white font-medium" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8), -1px -1px 2px rgba(0,0,0,0.5)' }}>
+              {locale === 'zh' ? '新西兰华人贷款专家' : 'Auckland Mortgage Specialists'}
             </span>
           </div>
 
           {/* Main Heading */}
-          <h1 className="mb-6">
+          <h1 className="mb-6 text-white" style={{ textShadow: '3px 3px 6px rgba(0,0,0,0.9), -2px -2px 4px rgba(0,0,0,0.6)' }}>
             {t('hero.title')}
           </h1>
 
           {/* Subtitle */}
-          <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+          <p className="text-xl text-white mb-8 max-w-2xl mx-auto font-medium" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8), -1px -1px 2px rgba(0,0,0,0.5)' }}>
             {t('hero.subtitle')}
           </p>
 
           {/* Stats Row */}
           <div className="flex flex-wrap items-center justify-center gap-8 mb-12">
             <div className="text-center">
-              <div className="text-3xl mb-1 bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">
+              <div className="text-3xl mb-1 bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent font-bold" style={{ filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.8))' }}>
                 {COMPANY_INFO.stats.experience}
               </div>
-              <div className="text-sm text-gray-400">
+              <div className="text-sm text-white font-medium" style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.8)' }}>
                 {locale === 'zh' ? '年经验' : 'Years'}
               </div>
             </div>
             <div className="text-center">
-              <div className="text-3xl mb-1 bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">
+              <div className="text-3xl mb-1 bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent font-bold" style={{ filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.8))' }}>
                 {COMPANY_INFO.stats.clientsServed}
               </div>
-              <div className="text-sm text-gray-400">
+              <div className="text-sm text-white font-medium" style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.8)' }}>
                 {locale === 'zh' ? '服务家庭' : 'Families'}
               </div>
             </div>
             <div className="text-center">
-              <div className="text-3xl mb-1 bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">
+              <div className="text-3xl mb-1 bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent font-bold" style={{ filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.8))' }}>
                 ${COMPANY_INFO.stats.volumeH1_2025}
               </div>
-              <div className="text-sm text-gray-400">
+              <div className="text-sm text-white font-medium" style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.8)' }}>
                 {locale === 'zh' ? '2025上半年成交' : '2025 H1 Volume'}
               </div>
             </div>

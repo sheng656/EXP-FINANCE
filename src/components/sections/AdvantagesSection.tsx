@@ -6,11 +6,11 @@ const advantages = {
     {
       icon: Shield,
       title: '专业持牌',
-      description: '所有顾问持FSP执照，受FMA监管，专业资质有保障'
+      description: '持FSP执照顾问，受FMA监管，专业资质有保障'
     },
     {
       icon: Building2,
-      title: '25+合作金融机构',
+      title: '25+合作银行及金融机构',
       description: '合作主流银行及非银行贷款机构，为您提供更多选择和最优方案'
     },
     {

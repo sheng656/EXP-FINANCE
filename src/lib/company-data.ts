@@ -42,7 +42,7 @@ export const TEAM_MEMBERS = [
   {
     id: 'michelle',
     name: {
-      zh: 'Michelle 谢',
+      zh: 'Michelle Xie',
       en: 'Michelle XIE'
     },
     role: {
@@ -59,14 +59,14 @@ export const TEAM_MEMBERS = [
     bio: {
       zh: [
         '速捷信贷创始人，勤奋拼搏的福建人',
-        '商务英语专业+奥克兰大学商业管理学硕士',
+        '奥克兰大学商业管理学硕士',
         '10年+从业经验，帮助数千名客户圆家的梦想',
         '擅长生意/自雇收入复杂案例及多套投资房组合设计',
         '亲自设计监工建造自住房和投资房，丰富实战经验'
       ],
       en: [
         'Founder of EXP Finance, hardworking Fujian native',
-        'Business English + Master of Business Management (UoA)',
+        'Master of Business Management (UoA)',
         '10+ years helping thousands of clients achieve home ownership',
         'Expert in complex self-employed cases and multi-property portfolios',
         'Hands-on experience in property development and investment'
@@ -81,7 +81,7 @@ export const TEAM_MEMBERS = [
   {
     id: 'helen',
     name: {
-      zh: 'Helen 杨',
+      zh: 'Helen Yang',
       en: 'Helen YANG'
     },
     role: {
@@ -120,7 +120,7 @@ export const TEAM_MEMBERS = [
   {
     id: 'betty',
     name: {
-      zh: 'Betty 胡',
+      zh: 'Betty Hu',
       en: 'Betty HU'
     },
     role: {
@@ -159,7 +159,7 @@ export const TEAM_MEMBERS = [
   {
     id: 'leo',
     name: {
-      zh: 'Leo 刘',
+      zh: 'Leo Liu',
       en: 'Leo LIU'
     },
     role: {
