@@ -1,13 +1,16 @@
+import { useState } from 'react';
 import { Phone, Mail, MessageCircle, ShieldCheck, MapPin } from 'lucide-react';
 import { useI18n } from '../../lib/i18n-context';
 import { COMPLIANCE } from '../../lib/compliance-config';
 import { COMPANY_INFO } from '../../lib/company-data';
+import { WeChatModal } from '../ui/wechat-modal';
 import logoEnDark from 'figma:asset/089c4be095df59bbcd6336db2f3a396e2ab56ba2.png';
 import logoCnLight from 'figma:asset/fc1a1fa97a6996b5bd2f20ffe982f91816b443f2.png';
 
 export function Footer() {
   const { locale, t } = useI18n();
   const currentLogo = locale === 'en' ? logoEnDark : logoCnLight;
+  const [isWeChatModalOpen, setIsWeChatModalOpen] = useState(false);
 
   const quickLinks = [
     { key: 'home', href: '#home' },
@@ -32,7 +35,7 @@ export function Footer() {
             />
             <p className="text-gray-400 text-sm mb-4">
               {locale === 'zh' 
-                ? '专业、真诚，帮你省钱、赚钱、安心买房' 
+                ? '专业、真诚，帮您安心买房' 
                 : 'Professional, sincere mortgage advisory'}
             </p>
             <div className="flex items-center gap-2 text-sm text-gray-400">
@@ -94,6 +97,7 @@ export function Footer() {
                 {COMPANY_INFO.contact.email}
               </a>
               <button 
+                onClick={() => setIsWeChatModalOpen(true)}
                 className="flex items-center gap-2 text-gray-400 hover:text-yellow-400 transition text-sm"
               >
                 <MessageCircle className="w-4 h-4" />
@@ -153,6 +157,13 @@ export function Footer() {
           © {new Date().getFullYear()} {COMPLIANCE.fsp.holder[locale]}. {t('footer.copyright')}.
         </div>
       </div>
+
+      {/* WeChat QR Code Modal */}
+      <WeChatModal 
+        isOpen={isWeChatModalOpen} 
+        onClose={() => setIsWeChatModalOpen(false)}
+        type="wechat"
+      />
     </footer>
   );
 }
