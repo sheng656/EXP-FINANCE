@@ -1,11 +1,14 @@
+import { useState } from 'react';
 import { Phone, Mail, MapPin, MessageCircle, Clock } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
 import { ContactForm } from '../forms/ContactForm';
 import { useI18n } from '../../lib/i18n-context';
 import { COMPANY_INFO } from '../../lib/company-data';
+import { WeChatModal } from '../ui/wechat-modal';
 
 export function ContactSection() {
   const { locale } = useI18n();
+  const [isWeChatModalOpen, setIsWeChatModalOpen] = useState(false);
 
   return (
     <section id="contact" className="py-20 bg-gradient-to-b from-white to-gray-50">
@@ -84,6 +87,7 @@ export function ContactSection() {
                 </a>
 
                 <button 
+                  onClick={() => setIsWeChatModalOpen(true)}
                   className="flex items-start gap-4 p-4 rounded-lg hover:bg-gray-50 transition w-full text-left"
                 >
                   <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -181,6 +185,12 @@ export function ContactSection() {
           </div>
         </div>
       </div>
+
+      {/* WeChat QR Code Modal */}
+      <WeChatModal 
+        isOpen={isWeChatModalOpen} 
+        onClose={() => setIsWeChatModalOpen(false)} 
+      />
     </section>
   );
 }

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Menu, X, Phone, Mail, MessageCircle, Globe } from 'lucide-react';
 import { Button } from '../ui/button';
 import { useI18n } from '../../lib/i18n-context';
+import { WeChatModal } from '../ui/wechat-modal';
 import logoEnLight from 'figma:asset/516127ab8114ccc3ac2e9ee9e287d6e0b0f40818.png';
 import logoEnDark from 'figma:asset/089c4be095df59bbcd6336db2f3a396e2ab56ba2.png';
 import logoCn from 'figma:asset/fc1a1fa97a6996b5bd2f20ffe982f91816b443f2.png';
@@ -10,6 +11,7 @@ export function Header() {
   const { locale, setLocale, t } = useI18n();
   const currentLogo = locale === 'en' ? logoEnLight : logoCn;
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isWeChatModalOpen, setIsWeChatModalOpen] = useState(false);
 
   const navItems = [
     { key: 'home', href: '#home' },
@@ -78,6 +80,7 @@ export function Header() {
               variant="outline" 
               size="sm"
               className="border-yellow-600 text-yellow-600 hover:bg-yellow-50"
+              onClick={() => setIsWeChatModalOpen(true)}
             >
               <MessageCircle className="w-4 h-4 mr-2" />
               {t('cta.wechat')}
@@ -85,8 +88,9 @@ export function Header() {
             <Button 
               size="sm"
               className="bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700"
+              asChild
             >
-              {t('cta.contact')}
+              <a href="#contact">{t('cta.contact')}</a>
             </Button>
           </div>
 
@@ -117,18 +121,33 @@ export function Header() {
                 <Button 
                   variant="outline"
                   className="w-full border-yellow-600 text-yellow-600"
+                  onClick={() => {
+                    setIsWeChatModalOpen(true);
+                    setMobileMenuOpen(false);
+                  }}
                 >
                   <MessageCircle className="w-4 h-4 mr-2" />
                   {t('cta.wechat')}
                 </Button>
-                <Button className="w-full bg-gradient-to-r from-yellow-500 to-yellow-600">
-                  {t('cta.contact')}
+                <Button 
+                  className="w-full bg-gradient-to-r from-yellow-500 to-yellow-600"
+                  asChild
+                >
+                  <a href="#contact" onClick={() => setMobileMenuOpen(false)}>
+                    {t('cta.contact')}
+                  </a>
                 </Button>
               </div>
             </div>
           </nav>
         )}
       </div>
+
+      {/* WeChat QR Code Modal */}
+      <WeChatModal 
+        isOpen={isWeChatModalOpen} 
+        onClose={() => setIsWeChatModalOpen(false)} 
+      />
     </header>
   );
 }

@@ -1,10 +1,13 @@
+import { useState } from 'react';
 import { ArrowRight, Phone, MessageCircle } from 'lucide-react';
 import { Button } from '../ui/button';
 import { useI18n } from '../../lib/i18n-context';
 import { COMPANY_INFO } from '../../lib/company-data';
+import { WeChatModal } from '../ui/wechat-modal';
 
 export function Hero() {
   const { locale, t } = useI18n();
+  const [isWeChatModalOpen, setIsWeChatModalOpen] = useState(false);
 
   return (
     <section id="home" className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white overflow-hidden">
@@ -95,6 +98,7 @@ export function Hero() {
               size="lg"
               variant="outline"
               className="border-white/70 text-white bg-white/5 hover:bg-white/15 hover:border-white backdrop-blur-sm"
+              onClick={() => setIsWeChatModalOpen(true)}
             >
               <MessageCircle className="w-5 h-5 mr-2" />
               {t('cta.wechat')}
@@ -113,6 +117,12 @@ export function Hero() {
           </div>
         </div>
       </div>
+
+      {/* WeChat QR Code Modal */}
+      <WeChatModal 
+        isOpen={isWeChatModalOpen} 
+        onClose={() => setIsWeChatModalOpen(false)} 
+      />
     </section>
   );
 }

@@ -3,10 +3,12 @@ import { Phone, MessageCircle, Mail, X, MessageSquare } from 'lucide-react';
 import { Button } from '../ui/button';
 import { useI18n } from '../../lib/i18n-context';
 import { COMPANY_INFO } from '../../lib/company-data';
+import { WeChatModal } from '../ui/wechat-modal';
 
 export function FloatingActionBar() {
   const { locale, t } = useI18n();
   const [isExpanded, setIsExpanded] = useState(false);
+  const [isWeChatModalOpen, setIsWeChatModalOpen] = useState(false);
 
   const scrollToContact = () => {
     setIsExpanded(false);
@@ -25,7 +27,7 @@ export function FloatingActionBar() {
           <Button
             onClick={() => {
               setIsExpanded(false);
-              // Open WeChat modal
+              setIsWeChatModalOpen(true);
             }}
             className="w-full bg-green-500 hover:bg-green-600 text-white shadow-lg flex items-center justify-center gap-2 h-12 min-w-[160px]"
           >
@@ -75,6 +77,12 @@ export function FloatingActionBar() {
           </div>
         )}
       </Button>
+
+      {/* WeChat QR Code Modal */}
+      <WeChatModal 
+        isOpen={isWeChatModalOpen} 
+        onClose={() => setIsWeChatModalOpen(false)} 
+      />
     </div>
   );
 }
