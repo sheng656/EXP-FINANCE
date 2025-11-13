@@ -1,5 +1,6 @@
 import { X } from 'lucide-react';
 import { useEffect } from 'react';
+import { useI18n } from '@/lib/i18n-context';
 
 interface WeChatModalProps {
   isOpen: boolean;
@@ -7,6 +8,8 @@ interface WeChatModalProps {
 }
 
 export function WeChatModal({ isOpen, onClose }: WeChatModalProps) {
+  const { locale } = useI18n();
+  
   // Close on ESC key
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
@@ -25,38 +28,41 @@ export function WeChatModal({ isOpen, onClose }: WeChatModalProps) {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center">
+    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
       {/* Backdrop */}
       <div 
         className="absolute inset-0 bg-black/60 backdrop-blur-sm"
         onClick={onClose}
       />
       
-      {/* Modal Content */}
-      <div className="relative bg-white rounded-lg shadow-2xl w-[16vw] min-w-[200px] max-w-[320px] max-h-[16vh] min-h-[180px] mx-4 overflow-auto animate-in zoom-in-95 duration-200">
+      {/* Modal Content - 桌面1/6屏幕，移动端更大 */}
+      <div 
+        className="relative bg-white rounded-lg shadow-2xl max-w-[85vw] mx-auto overflow-hidden animate-in zoom-in-95 duration-200"
+        style={{
+          width: window.innerWidth >= 768 ? '450px' : '280px',
+          boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)'
+        }}
+      >
         
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-1 right-1 z-10 p-0.5 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
+          className="absolute top-1.5 right-1.5 z-10 p-0.5 rounded-full bg-gray-100/90 hover:bg-gray-200 transition-colors"
           aria-label="Close"
         >
-          <X className="w-3 h-3 text-gray-600" />
+          <X className="w-3.5 h-3.5 text-gray-600" />
         </button>
 
         {/* QR Code Image */}
-        <div className="p-2 flex flex-col">
+        <div className="p-2">
           <img 
             src="/qrcodes/michelle-wechat.jpg" 
             alt="Michelle WeChat QR Code" 
             className="w-full h-auto rounded object-contain"
           />
-          <div className="mt-1 text-center flex-shrink-0">
-            <p className="text-[10px] font-semibold text-gray-900 mb-0.5 leading-tight">
-              添加微信咨询
-            </p>
-            <p className="text-[8px] text-gray-600 leading-tight">
-              扫描二维码添加顾问
+          <div className="mt-1.5 text-center">
+            <p className="text-[10px] text-gray-600 leading-tight">
+              {locale === 'zh' ? '扫描二维码添加顾问微信' : 'Scan QR code to add WeChat'}
             </p>
           </div>
         </div>
