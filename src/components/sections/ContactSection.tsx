@@ -113,7 +113,7 @@ export function ContactSection() {
                   </div>
                   <div>
                     <div className="font-medium mb-1">
-                      {locale === 'zh' ? '关注小红书' : 'Follow on RED'}
+                      {locale === 'zh' ? '关注小红书' : 'Follow on rednote'}
                     </div>
                     <div className="text-gray-600 text-sm">
                       {locale === 'zh' ? '扫码关注获取最新资讯' : 'Scan to get latest updates'}
@@ -132,10 +132,18 @@ export function ContactSection() {
                     <div className="text-gray-600 text-sm">
                       {COMPANY_INFO.contact.address[locale]}
                     </div>
-                    <div className="font-medium mb-1 mt-3">
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4 p-4">
+                  <div className="w-12 h-12 bg-blue-200 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <MapPin className="w-6 h-6 text-blue-600" />
+                  </div>
+                  <div>
+                    <div className="font-medium mb-1">
                       {locale === 'zh' ? '服务地区' : 'Service Area'}
                     </div>
-                    <div className="text-gray-600">
+                    <div className="text-gray-600 text-sm">
                       {COMPANY_INFO.contact.serviceArea[locale]}
                     </div>
                   </div>
