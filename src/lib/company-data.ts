@@ -14,8 +14,12 @@ export const COMPANY_INFO = {
     phone: '022 314 5326',
     email: 'hello@expfin.co.nz',
     address: {
-      zh: '新西兰奥克兰',
-      en: 'Auckland, New Zealand'
+      zh: 'Level 3, B:HIVE, 72–74 Taharoto Road, Takapuna, Auckland 0622, New Zealand',
+      en: 'Level 3, B:HIVE, 72–74 Taharoto Road, Takapuna, Auckland 0622, New Zealand'
+    },
+    serviceArea: {
+      zh: '新西兰',
+      en: 'New Zealand'
     }
   },
   

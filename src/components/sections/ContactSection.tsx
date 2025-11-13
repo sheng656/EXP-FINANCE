@@ -124,10 +124,16 @@ export function ContactSection() {
                   </div>
                   <div>
                     <div className="font-medium mb-1">
+                      {locale === 'zh' ? '办公地址' : 'Office Address'}
+                    </div>
+                    <div className="text-gray-600 text-sm">
+                      {COMPANY_INFO.contact.address[locale]}
+                    </div>
+                    <div className="font-medium mb-1 mt-3">
                       {locale === 'zh' ? '服务地区' : 'Service Area'}
                     </div>
                     <div className="text-gray-600">
-                      {COMPANY_INFO.contact.address[locale]}
+                      {COMPANY_INFO.contact.serviceArea[locale]}
                     </div>
                   </div>
                 </div>
@@ -156,13 +162,7 @@ export function ContactSection() {
                     </div>
                     <div className="flex justify-between gap-8">
                       <span className="text-gray-600">
-                        {locale === 'zh' ? '周六' : 'Saturday'}
-                      </span>
-                      <span className="font-medium">10:00 AM - 4:00 PM</span>
-                    </div>
-                    <div className="flex justify-between gap-8">
-                      <span className="text-gray-600">
-                        {locale === 'zh' ? '周日' : 'Sunday'}
+                        {locale === 'zh' ? '周六、周日' : 'Sat - Sun'}
                       </span>
                       <span className="font-medium">
                         {locale === 'zh' ? '预约服务' : 'By Appointment'}
