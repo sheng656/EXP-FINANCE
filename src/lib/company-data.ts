@@ -1,6 +1,4 @@
-import michellePhoto from 'figma:asset/88f32fd31e98c066a3394bd3268dc44738bbf0ac.png';
-import bettyPhoto from 'figma:asset/f9fcf5a1e3933c3246a1e0815ab75bea4589a79a.png';
-import leoPhoto from 'figma:asset/f21f6303f57bccce6132c9509d923a7e429ace54.png';
+// Team member photos are stored in public/team/ directory
 
 export const COMPANY_INFO = {
   name: {
@@ -46,15 +44,15 @@ export const TEAM_MEMBERS = [
   {
     id: 'michelle',
     name: {
-      zh: 'Michelle Xie',
+      zh: 'Michelle XIE',
       en: 'Michelle XIE'
     },
     role: {
       zh: 'Director/10年+资深贷款顾问',
       en: 'Director / 10+ Years Senior Mortgage Advisor'
     },
-    fspNumber: 'FSP1000123',
-    photo: michellePhoto,
+    fspNumber: '430486',
+    photo: '/team/michelle.jpg',
     contact: {
       phone: '020 446 6883',
       email: 'michelle@expfinance.co.nz',
@@ -85,7 +83,7 @@ export const TEAM_MEMBERS = [
   {
     id: 'helen',
     name: {
-      zh: 'Helen Yang',
+      zh: 'Helen YANG',
       en: 'Helen YANG'
     },
     role: {
@@ -93,7 +91,7 @@ export const TEAM_MEMBERS = [
       en: 'Senior Loan Application Specialist'
     },
     fspNumber: null,
-    photo: 'https://images.unsplash.com/photo-1581065178026-390bc4e78dad?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&w=400&h=400',
+    photo: '/team/helen.jpg',
     contact: {
       phone: '020 446 6884',
       email: 'helen@expfinance.co.nz',
@@ -124,7 +122,7 @@ export const TEAM_MEMBERS = [
   {
     id: 'betty',
     name: {
-      zh: 'Betty Hu',
+      zh: 'Betty HU',
       en: 'Betty HU'
     },
     role: {
@@ -132,7 +130,7 @@ export const TEAM_MEMBERS = [
       en: 'Loan Assistant'
     },
     fspNumber: null,
-    photo: bettyPhoto,
+    photo: '/team/betty.jpg',
     contact: {
       phone: '020 446 6885',
       email: 'betty@expfinance.co.nz',
@@ -163,7 +161,7 @@ export const TEAM_MEMBERS = [
   {
     id: 'leo',
     name: {
-      zh: 'Leo Liu',
+      zh: 'Leo LIU',
       en: 'Leo LIU'
     },
     role: {
@@ -171,7 +169,7 @@ export const TEAM_MEMBERS = [
       en: 'Marketing Manager'
     },
     fspNumber: null,
-    photo: leoPhoto,
+    photo: '/team/leo.jpg',
     contact: {
       phone: '020 446 6886',
       email: 'leo@expfinance.co.nz',
