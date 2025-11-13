@@ -124,7 +124,7 @@ export function TeamSection() {
           {/* FSP Number - Only for licensed advisors */}
           {member.fspNumber && (
             <div className="mt-4 pt-4 border-t border-gray-200 text-xs text-gray-500 text-center">
-              FSP: {member.fspNumber}
+              FSPR Number: {member.fspNumber}
             </div>
           )}
         </div>

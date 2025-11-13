@@ -1,10 +1,10 @@
 export const COMPLIANCE = {
   // FSP 信息
   fsp: {
-    number: 'FSP430486',
+    number: '761111',
     holder: {
-      zh: '速捷信贷有限公司',
-      en: 'EXP Finance Limited'
+      zh: '速捷信贷',
+      en: 'EXP Finance'
     },
     registrar: 'Financial Markets Authority (FMA)'
   },

@@ -67,13 +67,24 @@ export function Footer() {
               {COMPLIANCE.legalPages
                 .sort((a, b) => a.priority - b.priority)
                 .map(page => (
-                  <a 
-                    key={page.key}
-                    href={`#legal/${page.key}`}
-                    className="block text-gray-400 hover:text-yellow-400 transition text-sm"
-                  >
-                    {page.label[locale]}
-                  </a>
+                  page.key === 'disclosure' ? (
+                    <a 
+                      key={page.key}
+                      href="/documents/Hello Book & Disclosure Guide.pdf"
+                      download
+                      className="block text-gray-400 hover:text-yellow-400 transition text-sm"
+                    >
+                      {page.label[locale]}
+                    </a>
+                  ) : (
+                    <a 
+                      key={page.key}
+                      href={`#legal/${page.key}`}
+                      className="block text-gray-400 hover:text-yellow-400 transition text-sm"
+                    >
+                      {page.label[locale]}
+                    </a>
+                  )
                 ))}
             </nav>
           </div>
@@ -115,7 +126,7 @@ export function Footer() {
             <div className="flex items-center gap-2 text-sm">
               <ShieldCheck className="w-5 h-5 text-yellow-400" />
               <span>
-                FSP: {COMPLIANCE.fsp.number} | {COMPLIANCE.fsp.registrar}
+                FSPR Number: {COMPLIANCE.fsp.number} | {COMPLIANCE.fsp.registrar}
               </span>
             </div>
             
