@@ -9,6 +9,7 @@ import { WeChatModal } from '../ui/wechat-modal';
 export function ContactSection() {
   const { locale } = useI18n();
   const [isWeChatModalOpen, setIsWeChatModalOpen] = useState(false);
+  const [isXiaohongshuModalOpen, setIsXiaohongshuModalOpen] = useState(false);
 
   return (
     <section id="contact" className="py-20 bg-gradient-to-b from-white to-gray-50">
@@ -103,11 +104,9 @@ export function ContactSection() {
                   </div>
                 </button>
 
-                <a
-                  href={COMPANY_INFO.social.xiaohongshu}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-start gap-4 p-4 rounded-lg hover:bg-gray-50 transition"
+                <button
+                  onClick={() => setIsXiaohongshuModalOpen(true)}
+                  className="flex items-start gap-4 p-4 rounded-lg hover:bg-gray-50 transition w-full text-left"
                 >
                   <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center flex-shrink-0">
                     <MessageCircle className="w-6 h-6 text-red-600" />
@@ -117,10 +116,10 @@ export function ContactSection() {
                       {locale === 'zh' ? '关注小红书' : 'Follow on RED'}
                     </div>
                     <div className="text-gray-600 text-sm">
-                      {locale === 'zh' ? '获取最新贷款资讯' : 'Get latest updates'}
+                      {locale === 'zh' ? '扫码关注获取最新资讯' : 'Scan to get latest updates'}
                     </div>
                   </div>
-                </a>
+                </button>
 
                 <div className="flex items-start gap-4 p-4">
                   <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -189,7 +188,15 @@ export function ContactSection() {
       {/* WeChat QR Code Modal */}
       <WeChatModal 
         isOpen={isWeChatModalOpen} 
-        onClose={() => setIsWeChatModalOpen(false)} 
+        onClose={() => setIsWeChatModalOpen(false)}
+        type="wechat"
+      />
+
+      {/* Xiaohongshu QR Code Modal */}
+      <WeChatModal 
+        isOpen={isXiaohongshuModalOpen} 
+        onClose={() => setIsXiaohongshuModalOpen(false)}
+        type="xiaohongshu"
       />
     </section>
   );

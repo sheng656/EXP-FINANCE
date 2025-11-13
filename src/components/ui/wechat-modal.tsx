@@ -5,10 +5,32 @@ import { useI18n } from '@/lib/i18n-context';
 interface WeChatModalProps {
   isOpen: boolean;
   onClose: () => void;
+  type?: 'wechat' | 'xiaohongshu';
 }
 
-export function WeChatModal({ isOpen, onClose }: WeChatModalProps) {
+export function WeChatModal({ isOpen, onClose, type = 'wechat' }: WeChatModalProps) {
   const { locale } = useI18n();
+  
+  const content = {
+    wechat: {
+      image: '/qrcodes/michelle-wechat.jpg',
+      alt: 'Michelle WeChat QR Code',
+      text: {
+        zh: '扫描二维码添加微信',
+        en: 'Scan QR code to add WeChat'
+      }
+    },
+    xiaohongshu: {
+      image: '/qrcodes/michelle-xiaohongshu.jpg',
+      alt: 'Michelle Xiaohongshu QR Code',
+      text: {
+        zh: '扫描二维码关注小红书',
+        en: 'Scan to follow on rednote'
+      }
+    }
+  };
+  
+  const currentContent = content[type];
   
   // Close on ESC key
   useEffect(() => {
@@ -56,13 +78,13 @@ export function WeChatModal({ isOpen, onClose }: WeChatModalProps) {
         {/* QR Code Image */}
         <div className="p-2">
           <img 
-            src="/qrcodes/michelle-wechat.jpg" 
-            alt="Michelle WeChat QR Code" 
+            src={currentContent.image} 
+            alt={currentContent.alt} 
             className="w-full h-auto rounded object-contain"
           />
           <div className="mt-1.5 text-center">
             <p className="text-[10px] text-gray-600 leading-tight">
-              {locale === 'zh' ? '扫描二维码添加顾问微信' : 'Scan QR code to add WeChat'}
+              {currentContent.text[locale]}
             </p>
           </div>
         </div>
