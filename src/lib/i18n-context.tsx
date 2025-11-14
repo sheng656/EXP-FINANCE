@@ -105,7 +105,7 @@ const translations = {
     'cta.wechat': 'WeChat',
     'cta.email': 'Email Us',
     'cta.learnMore': 'Learn More',
-    'cta.xiaohongshu': 'Follow on RED',
+    'cta.xiaohongshu': 'Follow on rednote',
     'cta.backToTop': 'Back to Top',
     
     // Team

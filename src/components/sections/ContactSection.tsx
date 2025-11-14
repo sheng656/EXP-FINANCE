@@ -9,6 +9,7 @@ import { WeChatModal } from '../ui/wechat-modal';
 export function ContactSection() {
   const { locale } = useI18n();
   const [isWeChatModalOpen, setIsWeChatModalOpen] = useState(false);
+  const [isWechatOfficialModalOpen, setIsWechatOfficialModalOpen] = useState(false);
   const [isXiaohongshuModalOpen, setIsXiaohongshuModalOpen] = useState(false);
 
   return (
@@ -100,6 +101,23 @@ export function ContactSection() {
                     </div>
                     <div className="text-gray-600 text-sm">
                       {locale === 'zh' ? '扫码添加顾问微信' : 'Scan to add advisor'}
+                    </div>
+                  </div>
+                </button>
+
+                <button
+                  onClick={() => setIsWechatOfficialModalOpen(true)}
+                  className="flex items-start gap-4 p-4 rounded-lg hover:bg-gray-50 transition w-full text-left"
+                >
+                  <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <MessageCircle className="w-6 h-6 text-green-600" />
+                  </div>
+                  <div>
+                    <div className="font-medium mb-1">
+                      {locale === 'zh' ? '关注公众号' : 'Follow Official Account'}
+                    </div>
+                    <div className="text-gray-600 text-sm">
+                      {locale === 'zh' ? '扫码关注微信公众号' : 'Scan to follow WeChat Official'}
                     </div>
                   </div>
                 </button>
@@ -198,6 +216,13 @@ export function ContactSection() {
         isOpen={isWeChatModalOpen} 
         onClose={() => setIsWeChatModalOpen(false)}
         type="wechat"
+      />
+
+      {/* WeChat Official Account QR Code Modal */}
+      <WeChatModal 
+        isOpen={isWechatOfficialModalOpen} 
+        onClose={() => setIsWechatOfficialModalOpen(false)}
+        type="wechat-official"
       />
 
       {/* Xiaohongshu QR Code Modal */}

@@ -5,7 +5,7 @@ import { useI18n } from '@/lib/i18n-context';
 interface WeChatModalProps {
   isOpen: boolean;
   onClose: () => void;
-  type?: 'wechat' | 'xiaohongshu';
+  type?: 'wechat' | 'wechat-official' | 'xiaohongshu';
 }
 
 export function WeChatModal({ isOpen, onClose, type = 'wechat' }: WeChatModalProps) {
@@ -18,6 +18,14 @@ export function WeChatModal({ isOpen, onClose, type = 'wechat' }: WeChatModalPro
       text: {
         zh: '扫描二维码添加微信',
         en: 'Scan QR code to add WeChat'
+      }
+    },
+    'wechat-official': {
+      image: '/qrcodes/wechat-official.jpg',
+      alt: 'WeChat Official Account QR Code',
+      text: {
+        zh: '扫描二维码关注公众号',
+        en: 'Scan to follow Official Account'
       }
     },
     xiaohongshu: {
