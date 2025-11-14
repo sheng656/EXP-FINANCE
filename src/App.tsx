@@ -6,6 +6,7 @@ import { AdvantagesSection } from './components/sections/AdvantagesSection';
 import { PartnersSection } from './components/sections/PartnersSection';
 import { TeamSection } from './components/sections/TeamSection';
 import { ServicesSection } from './components/sections/ServicesSection';
+import { MortgageCalculator } from './components/sections/MortgageCalculator';
 import { BlogSection } from './components/sections/BlogSection';
 import { ContactSection } from './components/sections/ContactSection';
 import { FloatingActionBar } from './components/cta/FloatingActionBar';
@@ -33,6 +34,9 @@ export default function App() {
 
           {/* Services Section */}
           <ServicesSection />
+
+          {/* Mortgage Calculator */}
+          <MortgageCalculator />
 
           {/* Blog Section */}
           <BlogSection />

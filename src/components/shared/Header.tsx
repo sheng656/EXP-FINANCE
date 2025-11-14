@@ -17,6 +17,7 @@ export function Header() {
     { key: 'home', href: '#home' },
     { key: 'team', href: '#team' },
     { key: 'services', href: '#services' },
+    { key: 'calculator', href: '#calculator' },
     { key: 'blog', href: '#blog' },
     { key: 'contact', href: '#contact' },
   ];
