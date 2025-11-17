@@ -86,39 +86,29 @@ export function TeamSection() {
           </ul>
 
           {/* Contact Actions */}
-          <div className="space-y-2">
+          <div className="flex gap-2">
             <Button 
-              variant="outline" 
-              className="w-full border-yellow-600 text-yellow-600 hover:bg-yellow-50"
+              variant="ghost" 
               size="sm"
+              className="flex-1 text-xs"
+              asChild
             >
-              <MessageCircle className="w-4 h-4 mr-2" />
-              {t('cta.wechat')}
+              <a href={`tel:${member.contact.phone.replace(/\s/g, '')}`}>
+                <Phone className="w-3 h-3 mr-1" />
+                {member.contact.phone}
+              </a>
             </Button>
-            <div className="flex gap-2">
-              <Button 
-                variant="ghost" 
-                size="sm"
-                className="flex-1 text-xs"
-                asChild
-              >
-                <a href={`tel:${member.contact.phone.replace(/\s/g, '')}`}>
-                  <Phone className="w-3 h-3 mr-1" />
-                  {member.contact.phone}
-                </a>
-              </Button>
-              <Button 
-                variant="ghost" 
-                size="sm"
-                className="flex-1 text-xs"
-                asChild
-              >
-                <a href={`mailto:${member.contact.email}`}>
-                  <Mail className="w-3 h-3 mr-1" />
-                  Email
-                </a>
-              </Button>
-            </div>
+            <Button 
+              variant="ghost" 
+              size="sm"
+              className="flex-1 text-xs"
+              asChild
+            >
+              <a href={`mailto:${member.contact.email}`}>
+                <Mail className="w-3 h-3 mr-1" />
+                Email
+              </a>
+            </Button>
           </div>
 
           {/* FSP Number - Only for licensed advisors */}

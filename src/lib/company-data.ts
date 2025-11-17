@@ -55,7 +55,7 @@ export const TEAM_MEMBERS = [
     photo: '/team/michelle.jpg',
     contact: {
       phone: '020 446 6883',
-      email: 'michelle@expfinance.co.nz',
+      email: 'michelle@expfin.co.nz',
       wechatQR: '/qrcodes/michelle-wechat.png'
     },
     bio: {
@@ -94,7 +94,7 @@ export const TEAM_MEMBERS = [
     photo: '/team/helen.jpg',
     contact: {
       phone: '020 446 6884',
-      email: 'helen@expfinance.co.nz',
+      email: 'admin@expfin.co.nz',
       wechatQR: '/qrcodes/helen-wechat.png'
     },
     bio: {
@@ -133,7 +133,7 @@ export const TEAM_MEMBERS = [
     photo: '/team/betty.jpg',
     contact: {
       phone: '020 446 6885',
-      email: 'betty@expfinance.co.nz',
+      email: 'support@expfin.co.nz',
       wechatQR: '/qrcodes/betty-wechat.png'
     },
     bio: {
@@ -172,7 +172,7 @@ export const TEAM_MEMBERS = [
     photo: '/team/leo.jpg',
     contact: {
       phone: '020 446 6886',
-      email: 'leo@expfinance.co.nz',
+      email: 'marketing@expfin.co.nz',
       wechatQR: '/qrcodes/leo-wechat.png'
     },
     bio: {
