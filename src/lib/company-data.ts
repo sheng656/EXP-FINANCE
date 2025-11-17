@@ -93,7 +93,7 @@ export const TEAM_MEMBERS = [
     fspNumber: null,
     photo: '/team/helen.jpg',
     contact: {
-      phone: '020 446 6884',
+      phone: '',
       email: 'admin@expfin.co.nz',
       wechatQR: '/qrcodes/helen-wechat.png'
     },
@@ -171,7 +171,7 @@ export const TEAM_MEMBERS = [
     fspNumber: null,
     photo: '/team/leo.jpg',
     contact: {
-      phone: '020 446 6886',
+      phone: '022 071 6077',
       email: 'marketing@expfin.co.nz',
       wechatQR: '/qrcodes/leo-wechat.png'
     },
