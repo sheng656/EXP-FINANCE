@@ -164,7 +164,12 @@ export function ContactSection() {
                   </div>
                 </button>
 
-                <div className="flex items-start gap-4 p-4">
+                <a 
+                  href="https://www.google.com/maps/search/?api=1&query=Level+3+B:HIVE+72-74+Taharoto+Road+Takapuna+Auckland+0622+New+Zealand"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-start gap-4 p-4 rounded-lg hover:bg-gray-50 transition"
+                >
                   <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0">
                     <MapPin className="w-6 h-6 text-gray-600" />
                   </div>
@@ -176,7 +181,7 @@ export function ContactSection() {
                       {COMPANY_INFO.contact.address[locale]}
                     </div>
                   </div>
-                </div>
+                </a>
 
                 <div className="flex items-start gap-4 p-4">
                   <div className="w-12 h-12 bg-blue-200 rounded-lg flex items-center justify-center flex-shrink-0">

@@ -69,7 +69,7 @@ export function Hero() {
                 {COMPANY_INFO.stats.clientsServed}
               </div>
               <div className="text-sm text-white font-medium" style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.8)' }}>
-                {locale === 'zh' ? '服务家庭' : 'Families'}
+                {locale === 'zh' ? '服务客户' : 'Clients'}
               </div>
             </div>
             <div className="text-center">

@@ -23,7 +23,7 @@ const translations = {
     
     // Hero
     'hero.title': '专业、真诚，帮您安心买房',
-    'hero.subtitle': '新西兰华人贷款专家 · 10年+经验 · 服务1000+家庭',
+    'hero.subtitle': '新西兰华人贷款专家 · 10年+经验 · 服务1000+客户',
     'hero.cta.primary': '立即咨询',
     'hero.cta.secondary': '了解更多',
     
@@ -61,7 +61,7 @@ const translations = {
     
     // Data Notes
     'dataNotes.title': '数据口径说明',
-    'dataNotes.clientsServed': '服务家庭数：基于2015年至今的累计成交客户统计',
+    'dataNotes.clientsServed': '服务客户数：基于2015年至今的累计成交客户统计',
     'dataNotes.satisfaction': '客户满意度：基于客户反馈调查及推荐率统计',
     'dataNotes.volume': '成交金额：基于2025年上半年实际成交金额统计',
     'dataNotes.savings': '节省金额：基于客户实际利率优化案例的平均值',
@@ -96,7 +96,7 @@ const translations = {
     
     // Hero
     'hero.title': 'Professional, Sincere Mortgage Advisory',
-    'hero.subtitle': 'Auckland Mortgage Broker · 10+ Years Experience · 1000+ Families Served',
+    'hero.subtitle': 'Auckland Mortgage Broker · 10+ Years Experience · 1000+ Clients Served',
     'hero.cta.primary': 'Get Started',
     'hero.cta.secondary': 'Learn More',
     
@@ -134,7 +134,7 @@ const translations = {
     
     // Data Notes
     'dataNotes.title': 'Data Methodology',
-    'dataNotes.clientsServed': 'Families Served: Cumulative clients since 2015',
+    'dataNotes.clientsServed': 'Clients Served: Cumulative clients since 2015',
     'dataNotes.satisfaction': 'Client Satisfaction: Based on customer surveys and referral rates',
     'dataNotes.volume': 'Transaction Volume: Based on actual settlements in H1 2025',
     'dataNotes.savings': 'Savings Amount: Average based on actual rate optimization cases',
