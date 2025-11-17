@@ -171,16 +171,20 @@ export function ContactForm() {
             {t('form.agreeTerms')}{' '}
             <a 
               href="/documents/Privacy Policy.pdf"
-              download
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-yellow-600 hover:underline"
+              onClick={(e) => e.stopPropagation()}
             >
               {t('legal.privacy')}
             </a>
             {' '}{t('form.and')}{' '}
             <a 
               href="/documents/Website Terms.pdf"
-              download
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-yellow-600 hover:underline"
+              onClick={(e) => e.stopPropagation()}
             >
               {t('legal.terms')}
             </a>

@@ -72,7 +72,8 @@ export function Footer() {
                       <a 
                         key={page.key}
                         href="/documents/Disclosure Guide.pdf"
-                        download
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="block text-gray-400 hover:text-yellow-400 transition text-sm"
                       >
                         {page.label[locale]}
@@ -83,7 +84,20 @@ export function Footer() {
                       <a 
                         key={page.key}
                         href="/documents/Privacy Policy.pdf"
-                        download
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block text-gray-400 hover:text-yellow-400 transition text-sm"
+                      >
+                        {page.label[locale]}
+                      </a>
+                    );
+                  } else if (page.key === 'terms') {
+                    return (
+                      <a 
+                        key={page.key}
+                        href="/documents/Website Terms.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="block text-gray-400 hover:text-yellow-400 transition text-sm"
                       >
                         {page.label[locale]}
