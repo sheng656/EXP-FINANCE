@@ -170,17 +170,17 @@ export function ContactForm() {
           >
             {t('form.agreeTerms')}{' '}
             <a 
-              href="#legal/privacy" 
+              href="/documents/Privacy Policy.pdf"
+              download
               className="text-yellow-600 hover:underline"
-              target="_blank"
             >
               {t('legal.privacy')}
             </a>
             {' '}{t('form.and')}{' '}
             <a 
-              href="#legal/terms" 
+              href="/documents/Website Terms.pdf"
+              download
               className="text-yellow-600 hover:underline"
-              target="_blank"
             >
               {t('legal.terms')}
             </a>
