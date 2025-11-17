@@ -1,10 +1,11 @@
 import { useState } from 'react';
-import { Phone, Mail, MapPin, MessageCircle, Clock } from 'lucide-react';
+import { Phone, Mail, MapPin, MessageCircle, Clock, FileText } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '../ui/card';
 import { ContactForm } from '../forms/ContactForm';
 import { useI18n } from '../../lib/i18n-context';
 import { COMPANY_INFO } from '../../lib/company-data';
 import { WeChatModal } from '../ui/wechat-modal';
+import { Button } from '../ui/button';
 
 export function ContactSection() {
   const { locale } = useI18n();
@@ -31,7 +32,7 @@ export function ContactSection() {
         <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
           
           {/* Contact Form */}
-          <div>
+          <div className="space-y-6">
             <Card>
               <CardHeader>
                 <CardTitle>
@@ -40,6 +41,30 @@ export function ContactSection() {
               </CardHeader>
               <CardContent>
                 <ContactForm />
+              </CardContent>
+            </Card>
+
+            {/* Public Disclosure Download */}
+            <Card className="bg-gradient-to-br from-yellow-50 to-white border-yellow-200">
+              <CardContent className="pt-6">
+                <a 
+                  href="/documents/Disclosure Guide.pdf"
+                  download
+                  className="block"
+                >
+                  <Button 
+                    className="w-full bg-yellow-500 hover:bg-yellow-600 text-white font-medium py-6 text-base"
+                    size="lg"
+                  >
+                    <FileText className="w-5 h-5 mr-2" />
+                    {locale === 'zh' ? '下载公开披露文件' : 'Download Disclosure Guide'}
+                  </Button>
+                </a>
+                <p className="text-sm text-gray-600 text-center mt-3">
+                  {locale === 'zh' 
+                    ? '了解我们的服务范围、费用结构和合规信息' 
+                    : 'Learn about our services, fees and compliance information'}
+                </p>
               </CardContent>
             </Card>
           </div>
