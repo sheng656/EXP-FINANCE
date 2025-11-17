@@ -157,7 +157,7 @@ export function AdvantagesSection() {
                 1000+*
               </div>
               <div className="text-xs md:text-sm text-gray-300">
-                {locale === 'zh' ? '服务家庭' : 'Families Served'}
+                {locale === 'zh' ? '服务客户' : 'Clients Served'}
               </div>
             </div>
             <div>
@@ -165,7 +165,7 @@ export function AdvantagesSection() {
                 25+
               </div>
               <div className="text-xs md:text-sm text-gray-300">
-                {locale === 'zh' ? '合作金融机构' : 'Financial Partners'}
+                {locale === 'zh' ? '合作银行和金融机构' : 'Financial Partners'}
               </div>
             </div>
           </div>
