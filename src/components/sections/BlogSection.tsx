@@ -1,67 +1,91 @@
-import { Calendar, Clock, ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Calendar, Clock, ArrowRight, ChevronLeft, ChevronRight, X, Download, ExternalLink } from 'lucide-react';
 import { useState, useRef } from 'react';
 import { Card, CardContent } from '../ui/card';
 import { Button } from '../ui/button';
 import { Badge } from '../ui/badge';
 import { useI18n } from '../../lib/i18n-context';
 
-const blogPosts = {
+interface BlogPost {
+  id: number;
+  title: string;
+  excerpt: string;
+  category: string;
+  date: string;
+  readTime: string;
+  image: string;
+  contentType: 'pdf';
+  pdfUrl: string;
+}
+
+const blogPosts: { zh: BlogPost[], en: BlogPost[] } = {
   zh: [
     {
       id: 1,
-      title: '2025年新西兰房贷市场展望',
-      excerpt: '随着利率政策调整，2025年将是购房和转贷的好时机。本文分析最新市场趋势和策略建议...',
+      title: '深度解析：新西兰央行2025年10月官方现金利率下调的全面影响',
+      excerpt: 'RBNZ大胆下调OCR 50个基点至2.5%，这一"震慑疗法"决策如何影响你的房贷、储蓄和投资？从借款人到储户，从房市到纽元汇率，全方位解读央行政策及应对策略...',
       category: '市场动态',
       date: '2025-01-15',
-      readTime: '5分钟',
-      image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=500&fit=crop'
+      readTime: '12分钟',
+      image: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&h=500&fit=crop',
+      contentType: 'pdf',
+      pdfUrl: '/blog-content/降息对大众生活的影响分析.pdf'
     },
     {
       id: 2,
-      title: '首次购房者完整指南：从零到交房',
-      excerpt: '详细解读首次购房流程，包括Welcome Home Loan、First Home Grant申请，以及如何优化首付比例...',
+      title: '房贷利率"快触底"！锁多久更划算？',
+      excerpt: '多家银行表示利率已接近最低点，6个月、12个月还是2-3年锁定？灵活性与确定性如何平衡？分段策略让你睡得最香，专业顾问3分钟带你看懂当前形势和最优选择...',
       category: '贷款知识',
-      date: '2025-01-10',
-      readTime: '8分钟',
-      image: 'https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=800&h=500&fit=crop'
+      date: '2025-01-12',
+      readTime: '5分钟',
+      image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&h=500&fit=crop',
+      contentType: 'pdf',
+      pdfUrl: '/blog-content/房贷利率！快触底？到期后，锁多久更划算？.pdf'
     },
     {
       id: 3,
-      title: '案例分享：自雇人士成功申请投资贷款',
-      excerpt: 'Michelle顾问帮助一位自雇华人客户，通过优化财务报表，成功获批150万投资房贷款...',
+      title: '用真诚与专业——为每一个家庭"贷"来安心的未来',
+      excerpt: '从业10余年，Michelle见证了无数家庭的购房梦想。真实案例分享：首次购房者如何克服挑战成功上车？自雇人士怎样优化财务获得投资贷款？专业服务+人性化关怀，让贷款之路更温暖...',
       category: '成功案例',
-      date: '2025-01-05',
-      readTime: '6分钟',
-      image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=800&h=500&fit=crop'
+      date: '2025-01-08',
+      readTime: '8分钟',
+      image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=500&fit=crop',
+      contentType: 'pdf',
+      pdfUrl: '/blog-content/用真诚与专业为每一个家庭贷来安心的未来.pdf'
     }
   ],
   en: [
     {
       id: 1,
-      title: '2025 NZ Mortgage Market Outlook',
-      excerpt: 'With interest rate policy adjustments, 2025 presents opportunities for home buyers and refinancing...',
+      title: 'In-Depth Analysis: RBNZ October 2025 OCR Cut and Its Full Impact',
+      excerpt: 'RBNZ boldly cut OCR by 50 basis points to 2.5% – how does this "shock therapy" affect your mortgage, savings, and investments? From borrowers to savers, housing market to NZD exchange rate, comprehensive policy analysis and response strategies...',
       category: 'Market Updates',
       date: '2025-01-15',
-      readTime: '5 min read',
-      image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=500&fit=crop'
+      readTime: '12 min read',
+      image: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&h=500&fit=crop',
+      contentType: 'pdf',
+      pdfUrl: '/blog-content/降息对大众生活的影响分析.pdf'
     },
     {
       id: 2,
-      title: 'First Home Buyer Complete Guide',
-      excerpt: 'Comprehensive guide covering Welcome Home Loan, First Home Grant applications, and deposit optimization...',
+      title: 'Mortgage Rates Near Bottom – How Long Should You Fix?',
+      excerpt: 'Banks indicate rates approaching historic lows. Fix for 6 months, 12 months, or 2-3 years? Balance flexibility with certainty. Split strategy for peace of mind – expert guidance to navigate current market conditions in 3 minutes...',
       category: 'Mortgage Tips',
-      date: '2025-01-10',
-      readTime: '8 min read',
-      image: 'https://images.unsplash.com/photo-1582407947304-fd86f028f716?w=800&h=500&fit=crop'
+      date: '2025-01-12',
+      readTime: '5 min read',
+      image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&h=500&fit=crop',
+      contentType: 'pdf',
+      pdfUrl: '/blog-content/房贷利率！快触底？到期后，锁多久更划算？.pdf'
     },
     {
       id: 3,
-      title: 'Case Study: Self-Employed Investment Loan Success',
-      excerpt: 'How Michelle helped a self-employed client secure $1.5M investment property loan through financial optimization...',
+      title: 'Building Dreams with Integrity – Securing a Confident Future for Every Family',
+      excerpt: 'With over 10 years of experience, Michelle has witnessed countless families achieve their homeownership dreams. Real success stories: How first-home buyers overcome challenges? How self-employed clients optimize finances for investment loans? Professional service with personal care...',
       category: 'Success Stories',
-      date: '2025-01-05',
-      readTime: '6 min read',
-      image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=800&h=500&fit=crop'
+      date: '2025-01-08',
+      readTime: '8 min read',
+      image: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=500&fit=crop',
+      contentType: 'pdf',
+      pdfUrl: '/blog-content/用真诚与专业为每一个家庭"贷"来安心的未来.pdf'
     }
   ]
 };
@@ -70,6 +94,7 @@ export function BlogSection() {
   const { locale } = useI18n();
   const posts = blogPosts[locale];
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [selectedPost, setSelectedPost] = useState<BlogPost | null>(null);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   const handlePrev = () => {
@@ -123,6 +148,7 @@ export function BlogSection() {
             <Card 
               key={post.id} 
               className="overflow-hidden hover:shadow-xl transition-all hover:-translate-y-1 cursor-pointer"
+              onClick={() => window.open(post.pdfUrl, '_blank')}
             >
               {/* Image */}
               <div className="h-48 overflow-hidden">
@@ -191,6 +217,7 @@ export function BlogSection() {
               <Card 
                 key={post.id} 
                 className="min-w-[85vw] snap-center overflow-hidden shadow-lg cursor-pointer"
+                onClick={() => window.open(post.pdfUrl, '_blank')}
               >
                 {/* Image */}
                 <div className="h-48 overflow-hidden">
