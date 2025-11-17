@@ -37,22 +37,21 @@ export function Hero() {
         <div className="max-w-4xl mx-auto text-center">
           
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 bg-yellow-500/10 border border-yellow-500/20 rounded-full px-4 py-2 mb-8">
+          <div className="inline-flex items-center gap-2 bg-yellow-500/10 border border-yellow-500/20 rounded-full px-6 py-3 mb-8">
             <span className="w-2 h-2 bg-yellow-400 rounded-full animate-pulse" />
-            <span className="text-sm text-white font-medium" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8), -1px -1px 2px rgba(0,0,0,0.5)' }}>
+            <span className="text-xl md:text-2xl text-white font-bold" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8), -1px -1px 2px rgba(0,0,0,0.5)' }}>
               {locale === 'zh' ? '新西兰华人贷款专家' : 'Auckland Mortgage Specialists'}
             </span>
           </div>
 
           {/* Main Heading */}
-          <h1 className="mb-6 text-white" style={{ textShadow: '3px 3px 6px rgba(0,0,0,0.9), -2px -2px 4px rgba(0,0,0,0.6)' }}>
-            {t('hero.title')}
-          </h1>
-
-          {/* Subtitle */}
-          <p className="text-xl text-white mb-8 max-w-2xl mx-auto font-medium" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8), -1px -1px 2px rgba(0,0,0,0.5)' }}>
-            {t('hero.subtitle')}
-          </p>
+          <h1 className="mb-12 text-white font-bold leading-tight" 
+            style={{ 
+            fontSize: 'clamp(2rem, 8vw, 3rem)', // 响应式，最小2rem，最大3rem
+            textShadow: '3px 3px 6px rgba(0,0,0,0.9), -2px -2px 4px rgba(0,0,0,0.6)' 
+            }}>
+              {t('hero.title')}
+          </h1> 
 
           {/* Stats Row */}
           <div className="flex flex-wrap items-center justify-center gap-8 mb-12">

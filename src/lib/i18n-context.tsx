@@ -23,7 +23,7 @@ const translations = {
     
     // Hero
     'hero.title': '专业、真诚，帮您安心买房',
-    'hero.subtitle': '新西兰华人贷款专家 · 10年+经验 · 服务1000+客户',
+    'hero.subtitle': '10年+经验 · 服务1000+客户',
     'hero.cta.primary': '立即咨询',
     'hero.cta.secondary': '了解更多',
     
@@ -96,7 +96,7 @@ const translations = {
     
     // Hero
     'hero.title': 'Professional, Sincere Mortgage Advisory',
-    'hero.subtitle': 'Auckland Mortgage Broker · 10+ Years Experience · 1000+ Clients Served',
+    'hero.subtitle': '10+ Years Experience · 1000+ Clients Served',
     'hero.cta.primary': 'Get Started',
     'hero.cta.secondary': 'Learn More',
     
