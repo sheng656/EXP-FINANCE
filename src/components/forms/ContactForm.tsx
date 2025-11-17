@@ -7,11 +7,13 @@ import { Checkbox } from '../ui/checkbox';
 import { Label } from '../ui/label';
 import { useI18n } from '../../lib/i18n-context';
 import { COMPLIANCE } from '../../lib/compliance-config';
+import emailjs from '@emailjs/browser';
 
 export function ContactForm() {
   const { locale, t } = useI18n();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [isError, setIsError] = useState(false);
   const [agreedToTerms, setAgreedToTerms] = useState(false);
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
@@ -23,19 +25,41 @@ export function ContactForm() {
     }
 
     setIsSubmitting(true);
+    setIsError(false);
 
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1500));
+    try {
+      // EmailJS configuration
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'YOUR_SERVICE_ID';
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'YOUR_TEMPLATE_ID';
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'YOUR_PUBLIC_KEY';
 
-    setIsSubmitting(false);
-    setIsSuccess(true);
+      // Send email using EmailJS
+      await emailjs.sendForm(
+        serviceId,
+        templateId,
+        e.currentTarget,
+        publicKey
+      );
 
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setIsSuccess(false);
-      (e.target as HTMLFormElement).reset();
-      setAgreedToTerms(false);
-    }, 3000);
+      setIsSubmitting(false);
+      setIsSuccess(true);
+
+      // Reset form after 3 seconds
+      setTimeout(() => {
+        setIsSuccess(false);
+        (e.target as HTMLFormElement).reset();
+        setAgreedToTerms(false);
+      }, 3000);
+    } catch (error) {
+      console.error('EmailJS Error:', error);
+      setIsSubmitting(false);
+      setIsError(true);
+      
+      // Hide error after 5 seconds
+      setTimeout(() => {
+        setIsError(false);
+      }, 5000);
+    }
   };
 
   if (isSuccess) {
@@ -47,9 +71,32 @@ export function ContactForm() {
         </h3>
         <p className="text-green-700 text-sm">
           {locale === 'zh' 
-            ? '我们会在1个工作日内与您联系'
-            : 'We will contact you within 1 business day'}
+            ? '我们会在3个工作日内与您联系'
+            : 'We will contact you within 3 business days'}
         </p>
+      </div>
+    );
+  }
+
+  if (isError) {
+    return (
+      <div className="bg-red-50 border border-red-200 rounded-lg p-8 text-center">
+        <div className="text-4xl mb-4">❌</div>
+        <h3 className="text-red-900 mb-2">
+          {locale === 'zh' ? '发送失败' : 'Failed to Send'}
+        </h3>
+        <p className="text-red-700 text-sm mb-4">
+          {locale === 'zh' 
+            ? '抱歉，消息发送失败。请稍后重试或直接联系我们。'
+            : 'Sorry, the message failed to send. Please try again or contact us directly.'}
+        </p>
+        <Button 
+          onClick={() => setIsError(false)}
+          variant="outline"
+          className="border-red-300 text-red-700 hover:bg-red-50"
+        >
+          {locale === 'zh' ? '返回' : 'Go Back'}
+        </Button>
       </div>
     );
   }
