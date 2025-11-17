@@ -88,9 +88,12 @@ export function ServicesSection() {
                   <Button 
                     variant="ghost" 
                     className="w-full text-yellow-600 hover:text-yellow-700 hover:bg-yellow-50"
+                    asChild
                   >
-                    {t('cta.learnMore')}
-                    <ArrowRight className="w-4 h-4 ml-2" />
+                    <a href="#contact">
+                      {t('cta.learnMore')}
+                      <ArrowRight className="w-4 h-4 ml-2" />
+                    </a>
                   </Button>
                 </CardContent>
               </Card>
@@ -152,9 +155,12 @@ export function ServicesSection() {
                     <Button 
                       variant="ghost" 
                       className="w-full text-yellow-600 hover:text-yellow-700 hover:bg-yellow-50"
+                      asChild
                     >
-                      {t('cta.learnMore')}
-                      <ArrowRight className="w-4 h-4 ml-2" />
+                      <a href="#contact">
+                        {t('cta.learnMore')}
+                        <ArrowRight className="w-4 h-4 ml-2" />
+                      </a>
                     </Button>
                   </CardContent>
                 </Card>
