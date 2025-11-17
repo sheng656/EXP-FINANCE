@@ -66,26 +66,41 @@ export function Footer() {
             <nav className="space-y-2">
               {COMPLIANCE.legalPages
                 .sort((a, b) => a.priority - b.priority)
-                .map(page => (
-                  page.key === 'disclosure' ? (
-                    <a 
-                      key={page.key}
-                      href="/documents/Hello Book & Disclosure Guide.pdf"
-                      download
-                      className="block text-gray-400 hover:text-yellow-400 transition text-sm"
-                    >
-                      {page.label[locale]}
-                    </a>
-                  ) : (
-                    <a 
-                      key={page.key}
-                      href={`#legal/${page.key}`}
-                      className="block text-gray-400 hover:text-yellow-400 transition text-sm"
-                    >
-                      {page.label[locale]}
-                    </a>
-                  )
-                ))}
+                .map(page => {
+                  if (page.key === 'disclosure') {
+                    return (
+                      <a 
+                        key={page.key}
+                        href="/documents/Disclosure Guide.pdf"
+                        download
+                        className="block text-gray-400 hover:text-yellow-400 transition text-sm"
+                      >
+                        {page.label[locale]}
+                      </a>
+                    );
+                  } else if (page.key === 'privacy') {
+                    return (
+                      <a 
+                        key={page.key}
+                        href="/documents/Privacy Policy.pdf"
+                        download
+                        className="block text-gray-400 hover:text-yellow-400 transition text-sm"
+                      >
+                        {page.label[locale]}
+                      </a>
+                    );
+                  } else {
+                    return (
+                      <a 
+                        key={page.key}
+                        href={`#legal/${page.key}`}
+                        className="block text-gray-400 hover:text-yellow-400 transition text-sm"
+                      >
+                        {page.label[locale]}
+                      </a>
+                    );
+                  }
+                })}
             </nav>
           </div>
           
