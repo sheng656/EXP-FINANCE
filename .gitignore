@@ -49,3 +49,5 @@ yarn-error.log
 *.local
 *.log
 /.history/
+public/documents/Website Terms.pdf.md
+public/documents/Complaint Process.pdf.md

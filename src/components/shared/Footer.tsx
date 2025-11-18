@@ -103,6 +103,18 @@ export function Footer() {
                         {page.label[locale]}
                       </a>
                     );
+                  } else if (page.key === 'complaints') {
+                    return (
+                      <a 
+                        key={page.key}
+                        href="/documents/Complaint Process.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block text-gray-400 hover:text-yellow-400 transition text-sm"
+                      >
+                        {page.label[locale]}
+                      </a>
+                    );
                   } else {
                     return (
                       <a 
