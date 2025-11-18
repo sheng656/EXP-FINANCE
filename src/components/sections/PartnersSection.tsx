@@ -12,14 +12,15 @@ const PARTNERS = [
   { name: 'TSB Bank', id: 'tsb', category: 'bank' },
   { name: 'The Co-operative Bank', id: 'cooperative', category: 'bank' },
   { name: 'Heartland Bank', id: 'heartland', category: 'bank' },
+  { name: 'SBS Bank', id: 'sbs', category: 'bank' },
   
   // Non-Bank Lenders
   { name: 'Pepper Money', id: 'pepper', category: 'lender' },
   { name: 'Liberty Financial', id: 'liberty', category: 'lender' },
   { name: 'Avanti Finance', id: 'avanti', category: 'lender' },
   { name: 'Basecorp Finance', id: 'basecorp', category: 'lender' },
-  { name: 'RESIMAC', id: 'resimac', category: 'lender' },
-  { name: 'Bluestone', id: 'bluestone', category: 'lender' },
+  { name: 'Bizcap', id: 'bizcap', category: 'lender' },
+  { name: 'Finbase', id: 'finbase', category: 'lender' },
   
   // Specialist Lenders
   { name: 'First Mortgage Trust', id: 'fmt', category: 'specialist' },
@@ -27,23 +28,46 @@ const PARTNERS = [
   { name: 'Funding Partners', id: 'funding-partners', category: 'specialist' },
   { name: 'XCEDA Finance', id: 'xceda', category: 'specialist' },
   { name: 'Prospa', id: 'prospa', category: 'specialist' },
-  { name: 'Finance Direct', id: 'finance-direct', category: 'specialist' },
+  { name: 'CFM Loans', id: 'cfm', category: 'specialist' },
+  { name: 'Midlands Funds Management', id: 'midlands', category: 'specialist' },
   
   // Property Finance
   { name: 'ASAP Finance', id: 'asap', category: 'property' },
-  { name: 'DER Property Finance', id: 'der', category: 'property' },
+  { name: 'DBR Property Finance', id: 'dbr', category: 'property' },
   { name: 'Cressida Capital', id: 'cressida', category: 'property' },
-  { name: 'MTF Finance', id: 'mtf', category: 'property' },
   { name: 'Unity', id: 'unity', category: 'property' },
+  { name: 'AIP', id: 'aip', category: 'property' },
 ];
 
-// Component to display partner name
-function PartnerLogo({ name }: { name: string }) {
+// Component to display partner logo
+function PartnerLogo({ name, id }: { name: string; id: string }) {
+  const [imageError, setImageError] = useState(false);
+  const [imageFormat, setImageFormat] = useState<'png' | 'jpg'>('png');
+  
+  const handleImageError = () => {
+    if (imageFormat === 'png') {
+      // Try jpg if png fails
+      setImageFormat('jpg');
+    } else {
+      // If both fail, show text fallback
+      setImageError(true);
+    }
+  };
+  
   return (
     <div className="text-center px-2">
-      <p className="text-sm md:text-base lg:text-lg font-semibold text-gray-700 group-hover:text-yellow-600 transition-colors whitespace-nowrap">
-        {name}
-      </p>
+      {!imageError ? (
+        <img
+          src={`/partners/${id}.${imageFormat}`}
+          alt={name}
+          className="h-12 md:h-16 lg:h-20 w-auto object-contain mx-auto group-hover:scale-105 transition-transform"
+          onError={handleImageError}
+        />
+      ) : (
+        <p className="text-sm md:text-base lg:text-lg font-semibold text-gray-700 group-hover:text-yellow-600 transition-colors whitespace-nowrap">
+          {name}
+        </p>
+      )}
     </div>
   );
 }
@@ -97,7 +121,7 @@ export function PartnersSection() {
                 title={partner.name}
                 style={{ minWidth: '150px' }}
               >
-                <PartnerLogo name={partner.name} />
+                <PartnerLogo name={partner.name} id={partner.id} />
               </div>
             ))}
           </div>
@@ -106,8 +130,8 @@ export function PartnersSection() {
         {/* Footer Note */}
         <p className="text-xs text-gray-500 text-center mt-8">
           {locale === 'zh' 
-            ? '* 合作机构名单截至2025年10月，具体产品供应以实际为准' 
-            : '* Partner list as of October 2025, product availability subject to change'}
+            ? '* 合作机构名单截至2025年9月，具体产品供应以实际为准' 
+            : '* Partner list as of September 2025, product availability subject to change'}
         </p>
       </div>
 
