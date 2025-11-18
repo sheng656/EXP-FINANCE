@@ -40,7 +40,7 @@ export function Hero() {
           <div className="inline-flex items-center gap-2 bg-yellow-500/10 border border-yellow-500/20 rounded-full px-6 py-3 mb-8">
             <span className="w-2 h-2 bg-yellow-400 rounded-full animate-pulse" />
             <span className="text-xl md:text-2xl text-white font-bold" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8), -1px -1px 2px rgba(0,0,0,0.5)' }}>
-              {locale === 'zh' ? '新西兰华人贷款专家' : 'Auckland Mortgage Specialists'}
+              {locale === 'zh' ? '新西兰华人贷款专家' : 'New Zealand Mortgage Advisor'}
             </span>
           </div>
 

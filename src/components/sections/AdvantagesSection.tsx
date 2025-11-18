@@ -31,7 +31,7 @@ const advantages = {
     {
       icon: Award,
       title: '成功案例',
-      description: '10+年行业经验，服务1000+*家庭，专业口碑有保障'
+      description: '10+年行业经验，服务1000+*客户，专业口碑有保障'
     },
     {
       icon: Heart,
@@ -68,7 +68,7 @@ const advantages = {
     {
       icon: Award,
       title: 'Proven Track Record',
-      description: '10+ years experience, 1000+* families served, trusted professional reputation'
+      description: '10+ years experience, 1000+* clients served, trusted professional reputation'
     },
     {
       icon: Heart,
