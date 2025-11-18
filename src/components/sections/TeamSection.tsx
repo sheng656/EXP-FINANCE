@@ -42,7 +42,7 @@ export function TeamSection() {
         <div className="relative h-80 bg-gray-200 overflow-hidden">
           <img 
             src={member.photo}
-            alt={member.name[locale]}
+            alt={`${member.name[locale]} - ${member.role[locale]}${member.fspNumber ? ` FSP${member.fspNumber} 持牌顾问` : ''} - EXP Finance团队成员`}
             className="w-full h-full object-cover"
           />
           {/* FSP Badge - Only for licensed advisors */}

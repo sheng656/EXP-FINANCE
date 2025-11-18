@@ -14,7 +14,7 @@ export function WeChatModal({ isOpen, onClose, type = 'wechat' }: WeChatModalPro
   const content = {
     wechat: {
       image: '/qrcodes/michelle-wechat.jpg',
-      alt: 'Michelle WeChat QR Code',
+      alt: 'EXP Finance Michelle XIE微信二维码 - 扫码添加咨询新西兰房贷问题| Michelle WeChat QR Code',
       text: {
         zh: '扫描二维码添加微信',
         en: 'Scan QR code to add WeChat'
@@ -22,7 +22,7 @@ export function WeChatModal({ isOpen, onClose, type = 'wechat' }: WeChatModalPro
     },
     'wechat-official': {
       image: '/qrcodes/wechat-official.jpg',
-      alt: 'WeChat Official Account QR Code',
+      alt: 'EXP Finance速捷信贷微信公众号二维码 - 获取最新房贷资讯和利率动态| EXP Finance WeChat Official Account QR Code',
       text: {
         zh: '扫描二维码关注公众号',
         en: 'Scan to follow Official Account'
@@ -30,7 +30,7 @@ export function WeChatModal({ isOpen, onClose, type = 'wechat' }: WeChatModalPro
     },
     xiaohongshu: {
       image: '/qrcodes/michelle-xiaohongshu.jpg',
-      alt: 'Michelle Xiaohongshu QR Code',
+      alt: 'EXP Finance Michelle XIE小红书二维码 - 关注获取新西兰购房贷款实用攻略 | Michelle Xiaohongshu QR Code',
       text: {
         zh: '扫描二维码关注小红书',
         en: 'Scan to follow on rednote'

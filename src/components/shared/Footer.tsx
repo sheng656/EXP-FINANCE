@@ -30,7 +30,7 @@ export function Footer() {
           <div>
             <img 
               src={currentLogo} 
-              alt="EXP Finance" 
+              alt="EXP Finance 速捷信贷 - 新西兰奥克兰专业房贷顾问服务" 
               className="h-10 w-auto mb-4 brightness-0 invert"
             />
             <p className="text-gray-400 text-sm mb-4">

@@ -57,7 +57,7 @@ export function Header() {
           <a href="#home" className="flex items-center">
             <img 
               src={currentLogo} 
-              alt="EXP Finance" 
+              alt="EXP Finance 速捷信贷 - 新西兰专业贷款顾问" 
               className="h-10 w-auto"
             />
           </a>

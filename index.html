@@ -1,13 +1,139 @@
 
-  <!DOCTYPE html>
-  <html lang="en">
-    <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>EXP Finance Website Architecture</title>
-    </head>
-
-    <body>
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Primary Meta Tags -->
+    <title>EXP Finance 速捷信贷 - 新西兰专业贷款顾问 | Mortgage broker expert</title>
+    <meta name="title" content="EXP Finance 速捷信贷 - 新西兰专业贷款顾问 | 奥克兰持牌贷款中介FSP430486" />
+    <meta name="description" content="EXP Finance提供新西兰专业贷款咨询服务，10年+经验持牌FSP顾问，服务1000+客户。首次购房、投资贷款、转贷重组，Michelle XIE为您量身定制最优方案。立即联系：022 314 5326" />
+    <meta name="keywords" content="新西兰贷款,奥克兰贷款顾问,mortgage broker Auckland,首次购房贷款,投资房贷款,房屋贷款中介,FSP430486,Michelle XIE,速捷信贷,转贷重组,Welcome Home Loan" />
+    <meta name="author" content="EXP Finance Limited" />
+    <meta name="robots" content="index, follow" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://exp-finance.vercel.app/" />
+    <meta property="og:title" content="EXP Finance 速捷信贷 - 新西兰专业房贷顾问" />
+    <meta property="og:description" content="10年+经验持牌FSP顾问，服务1000+客户。首次购房、投资贷款、转贷重组专业咨询服务。" />
+    <meta property="og:image" content="https://www.expfin.co.nz/og-image.jpg" />
+    <meta property="og:locale" content="zh_CN" />
+    <meta property="og:locale:alternate" content="en_NZ" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://www.expfin.co.nz/" />
+    <meta property="twitter:title" content="EXP Finance 速捷信贷 - 新西兰专业房贷顾问" />
+    <meta property="twitter:description" content="10年+经验持牌FSP顾问，服务1000+客户。首次购房、投资贷款、转贷重组专业咨询服务。" />
+    <meta property="twitter:image" content="https://www.expfin.co.nz/og-image.jpg" />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.expfin.co.nz/" />
+    
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FinancialService",
+      "name": "EXP Finance Limited",
+      "alternateName": "速捷信贷",
+      "url": "https://www.expfin.co.nz",
+      "logo": "https://www.expfin.co.nz/logo.png",
+      "image": "https://www.expfin.co.nz/og-image.jpg",
+      "description": "新西兰专业房贷咨询服务，持牌FSP顾问，10年+经验，服务1000+客户",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Level 3, B:HIVE, 72-74 Taharoto Road",
+        "addressLocality": "Takapuna",
+        "addressRegion": "Auckland",
+        "postalCode": "0622",
+        "addressCountry": "NZ"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "-36.7890",
+        "longitude": "174.7772"
+      },
+      "telephone": "+64-22-314-5326",
+      "email": "hello@expfin.co.nz",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "09:00",
+          "closes": "18:00"
+        }
+      ],
+      "priceRange": "$$",
+      "areaServed": {
+        "@type": "GeoCircle",
+        "geoMidpoint": {
+          "@type": "GeoCoordinates",
+          "latitude": "-36.8485",
+          "longitude": "174.7633"
+        },
+        "geoRadius": "50000"
+      },
+      "serviceType": ["Home Loan", "Investment Property Loan", "Refinancing", "First Home Buyer Loan", "Construction Loan", "Commercial Property Loan"],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "150"
+      },
+      "founder": {
+        "@type": "Person",
+        "name": "Michelle XIE",
+        "jobTitle": "Licensed Financial Adviser",
+        "description": "持牌金融顾问 FSP430486，10年+房贷咨询经验"
+      },
+      "sameAs": [
+        "https://www.facebook.com/expfinance",
+        "https://www.linkedin.com/company/expfinance"
+      ]
+    }
+    </script>
+    
+    <!-- Local Business Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "EXP Finance Limited",
+      "image": "https://www.expfin.co.nz/og-image.jpg",
+      "@id": "https://www.expfin.co.nz",
+      "url": "https://www.expfin.co.nz",
+      "telephone": "+64-22-314-5326",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Level 3, B:HIVE, 72-74 Taharoto Road",
+        "addressLocality": "Takapuna",
+        "addressRegion": "Auckland",
+        "postalCode": "0622",
+        "addressCountry": "NZ"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "-36.7890",
+        "longitude": "174.7772"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "09:00",
+          "closes": "18:00"
+        }
+      ]
+    }
+    </script>
+  </head>    <body>
       <div id="root"></div>
       <script type="module" src="/src/main.tsx"></script>
     </body>
