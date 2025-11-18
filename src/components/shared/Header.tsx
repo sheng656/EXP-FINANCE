@@ -29,12 +29,12 @@ export function Header() {
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap items-center justify-between py-2 gap-4">
             <div className="flex items-center gap-6">
-              <a href="tel:0223145326" className="flex items-center gap-2 hover:text-yellow-400 transition text-base font-medium">
-                <Phone className="w-5 h-5" />
+              <a href="tel:0223145326" className="flex items-center gap-2 hover:text-yellow-400 transition font-bold" style={{ fontSize: '28px' }}>
+                <Phone className="w-7 h-7" />
                 <span className="hidden sm:inline">022 314 5326</span>
               </a>
-              <a href="mailto:hello@expfin.co.nz" className="flex items-center gap-2 hover:text-yellow-400 transition text-base font-medium">
-                <Mail className="w-5 h-5" />
+              <a href="mailto:hello@expfin.co.nz" className="flex items-center gap-2 hover:text-yellow-400 transition font-bold" style={{ fontSize: '28px' }}>
+                <Mail className="w-7 h-7" />
                 <span className="hidden sm:inline">hello@expfin.co.nz</span>
               </a>
             </div>

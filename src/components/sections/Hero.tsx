@@ -37,9 +37,9 @@ export function Hero() {
         <div className="max-w-4xl mx-auto text-center">
           
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 bg-yellow-500/10 border border-yellow-500/20 rounded-full px-6 py-3 mb-8">
-            <span className="w-2 h-2 bg-yellow-400 rounded-full animate-pulse" />
-            <span className="text-xl md:text-2xl text-white font-bold" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8), -1px -1px 2px rgba(0,0,0,0.5)' }}>
+          <div className="inline-flex items-center gap-4 bg-yellow-500/10 border-2 border-yellow-500/20 rounded-full px-10 py-5 mb-8">
+            <span className="w-4 h-4 bg-yellow-400 rounded-full animate-pulse" />
+            <span className="text-white font-bold" style={{ fontSize: '32px', textShadow: '2px 2px 4px rgba(0,0,0,0.8), -1px -1px 2px rgba(0,0,0,0.5)' }}>
               {locale === 'zh' ? '新西兰华人贷款专家' : 'New Zealand Mortgage Advisor'}
             </span>
           </div>

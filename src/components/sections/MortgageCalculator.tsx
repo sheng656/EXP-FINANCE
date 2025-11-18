@@ -154,14 +154,20 @@ export function MortgageCalculator() {
                     <label className="text-sm font-medium text-gray-700">
                       {locale === 'zh' ? '房产价格' : 'Property Price'}
                     </label>
-                    <span className="text-lg font-semibold text-gray-900">
-                      {formatCurrency(propertyPrice)}
-                    </span>
+                    <input
+                      type="number"
+                      min="200000"
+                      max="10000000"
+                      step="10000"
+                      value={propertyPrice}
+                      onChange={(e) => setPropertyPrice(Math.min(10000000, Math.max(200000, Number(e.target.value) || 200000)))}
+                      className="w-32 px-3 py-1 text-right text-lg font-semibold text-gray-900 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                    />
                   </div>
                   <input
                     type="range"
                     min="200000"
-                    max="3000000"
+                    max="10000000"
                     step="10000"
                     value={propertyPrice}
                     onChange={(e) => setPropertyPrice(Number(e.target.value))}
@@ -169,7 +175,7 @@ export function MortgageCalculator() {
                   />
                   <div className="flex justify-between text-xs text-gray-500 mt-1">
                     <span>$200k</span>
-                    <span>$3M</span>
+                    <span>$10M</span>
                   </div>
                 </div>
 
@@ -179,11 +185,17 @@ export function MortgageCalculator() {
                     <label className="text-sm font-medium text-gray-700">
                       {locale === 'zh' ? '首付金额' : 'Deposit Amount'}
                     </label>
-                    <div className="text-right">
-                      <span className="text-lg font-semibold text-gray-900">
-                        {formatCurrency(deposit)}
-                      </span>
-                      <span className="text-sm text-gray-500 ml-2">
+                    <div className="flex items-center gap-2">
+                      <input
+                        type="number"
+                        min={propertyPrice * 0.1}
+                        max={propertyPrice * 0.5}
+                        step="5000"
+                        value={deposit}
+                        onChange={(e) => setDeposit(Math.min(propertyPrice * 0.5, Math.max(propertyPrice * 0.1, Number(e.target.value) || propertyPrice * 0.1)))}
+                        className="w-32 px-3 py-1 text-right text-lg font-semibold text-gray-900 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                      />
+                      <span className="text-sm text-gray-500">
                         ({depositPercentage.toFixed(1)}%)
                       </span>
                     </div>
@@ -209,13 +221,22 @@ export function MortgageCalculator() {
                     <label className="text-sm font-medium text-gray-700">
                       {locale === 'zh' ? '年利率' : 'Interest Rate (p.a.)'}
                     </label>
-                    <span className="text-lg font-semibold text-gray-900">
-                      {interestRate.toFixed(2)}%
-                    </span>
+                    <div className="flex items-center gap-1">
+                      <input
+                        type="number"
+                        min="2"
+                        max="10"
+                        step="0.1"
+                        value={interestRate}
+                        onChange={(e) => setInterestRate(Math.min(10, Math.max(2, Number(e.target.value) || 2)))}
+                        className="w-24 px-3 py-1 text-right text-lg font-semibold text-gray-900 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                      />
+                      <span className="text-lg font-semibold text-gray-900">%</span>
+                    </div>
                   </div>
                   <input
                     type="range"
-                    min="3"
+                    min="2"
                     max="10"
                     step="0.1"
                     value={interestRate}
@@ -223,7 +244,7 @@ export function MortgageCalculator() {
                     className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-yellow-600"
                   />
                   <div className="flex justify-between text-xs text-gray-500 mt-1">
-                    <span>3%</span>
+                    <span>2%</span>
                     <span>10%</span>
                   </div>
                 </div>
@@ -234,9 +255,20 @@ export function MortgageCalculator() {
                     <label className="text-sm font-medium text-gray-700">
                       {locale === 'zh' ? '贷款年限' : 'Loan Term'}
                     </label>
-                    <span className="text-lg font-semibold text-gray-900">
-                      {loanTerm} {locale === 'zh' ? '年' : 'years'}
-                    </span>
+                    <div className="flex items-center gap-2">
+                      <input
+                        type="number"
+                        min="5"
+                        max="30"
+                        step="1"
+                        value={loanTerm}
+                        onChange={(e) => setLoanTerm(Math.min(30, Math.max(5, Number(e.target.value) || 5)))}
+                        className="w-20 px-3 py-1 text-right text-lg font-semibold text-gray-900 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent"
+                      />
+                      <span className="text-sm text-gray-700">
+                        {locale === 'zh' ? '年' : 'years'}
+                      </span>
+                    </div>
                   </div>
                   <input
                     type="range"
@@ -282,9 +314,15 @@ export function MortgageCalculator() {
                       <Zap className="w-4 h-4 text-yellow-600" />
                       {locale === 'zh' ? '额外还款' : 'Extra Payment'}
                     </label>
-                    <span className="text-lg font-semibold text-gray-900">
-                      {extraPayment === 0 ? (locale === 'zh' ? '无' : 'None') : formatCurrency(extraPayment)}
-                    </span>
+                    <input
+                      type="number"
+                      min="0"
+                      max="1000"
+                      step="50"
+                      value={extraPayment}
+                      onChange={(e) => setExtraPayment(Math.min(1000, Math.max(0, Number(e.target.value) || 0)))}
+                      className="w-28 px-3 py-1 text-right text-lg font-semibold text-gray-900 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                    />
                   </div>
                   <input
                     type="range"
@@ -468,31 +506,57 @@ export function MortgageCalculator() {
               {/* Visual Breakdown */}
               <Card className="shadow-md">
                 <CardContent className="pt-6">
-                  <p className="text-sm font-medium text-gray-700 mb-3">
+                  <p className="text-sm font-medium text-gray-700 mb-4">
                     {locale === 'zh' ? '还款构成' : 'Repayment Breakdown'}
                   </p>
-                  <div className="space-y-3">
-                    <div className="flex items-center gap-3">
-                      <div className="flex-1 h-4 bg-gray-200 rounded-full overflow-hidden">
-                        <div 
-                          className="h-full bg-blue-500 rounded-full transition-all duration-300"
-                          style={{ width: `${(loanAmount / extraPaymentResults.totalPaid) * 100}%` }}
-                        />
+                  
+                  {/* Single combined bar */}
+                  <div className="mb-4">
+                    <div className="h-8 bg-gray-100 rounded-lg overflow-hidden flex shadow-inner">
+                      <div 
+                        className="h-full flex items-center justify-center text-white text-sm font-semibold transition-all duration-500 ease-out"
+                        style={{ 
+                          width: `${(loanAmount / extraPaymentResults.totalPaid) * 100}%`,
+                          background: 'linear-gradient(to right, #3b82f6, #2563eb)'
+                        }}
+                      >
+                        {((loanAmount / extraPaymentResults.totalPaid) * 100) > 15 && (
+                          <span>{((loanAmount / extraPaymentResults.totalPaid) * 100).toFixed(1)}%</span>
+                        )}
                       </div>
-                      <span className="text-xs text-gray-600 w-24 text-right">
-                        {locale === 'zh' ? '本金' : 'Principal'} {((loanAmount / extraPaymentResults.totalPaid) * 100).toFixed(1)}%
-                      </span>
+                      <div 
+                        className="h-full flex items-center justify-center text-white text-sm font-semibold transition-all duration-500 ease-out"
+                        style={{ 
+                          width: `${(extraPaymentResults.totalInterest / extraPaymentResults.totalPaid) * 100}%`,
+                          background: 'linear-gradient(to right, #f97316, #ea580c)'
+                        }}
+                      >
+                        {((extraPaymentResults.totalInterest / extraPaymentResults.totalPaid) * 100) > 15 && (
+                          <span>{((extraPaymentResults.totalInterest / extraPaymentResults.totalPaid) * 100).toFixed(1)}%</span>
+                        )}
+                      </div>
                     </div>
-                    <div className="flex items-center gap-3">
-                      <div className="flex-1 h-4 bg-gray-200 rounded-full overflow-hidden">
-                        <div 
-                          className="h-full bg-purple-500 rounded-full transition-all duration-300"
-                          style={{ width: `${(extraPaymentResults.totalInterest / extraPaymentResults.totalPaid) * 100}%` }}
-                        />
+                  </div>
+                  
+                  {/* Legend */}
+                  <div className="grid grid-cols-2 gap-3">
+                    <div className="flex items-center gap-2 p-3 rounded-lg border" style={{ backgroundColor: '#eff6ff', borderColor: '#bfdbfe' }}>
+                      <div className="w-4 h-4 rounded flex-shrink-0 shadow-sm" style={{ background: 'linear-gradient(to right, #3b82f6, #2563eb)' }}></div>
+                      <div className="flex-1">
+                        <p className="text-xs text-gray-600">{locale === 'zh' ? '本金' : 'Principal'}</p>
+                        <p className="text-sm font-bold text-gray-900">
+                          {formatCurrency(loanAmount)}
+                        </p>
                       </div>
-                      <span className="text-xs text-gray-600 w-24 text-right">
-                        {locale === 'zh' ? '利息' : 'Interest'} {((extraPaymentResults.totalInterest / extraPaymentResults.totalPaid) * 100).toFixed(1)}%
-                      </span>
+                    </div>
+                    <div className="flex items-center gap-2 p-3 rounded-lg border" style={{ backgroundColor: '#ffedd5', borderColor: '#fed7aa' }}>
+                      <div className="w-4 h-4 rounded flex-shrink-0 shadow-sm" style={{ background: 'linear-gradient(to right, #f97316, #ea580c)' }}></div>
+                      <div className="flex-1">
+                        <p className="text-xs text-gray-600">{locale === 'zh' ? '利息' : 'Interest'}</p>
+                        <p className="text-sm font-bold text-gray-900">
+                          {formatCurrency(extraPaymentResults.totalInterest)}
+                        </p>
+                      </div>
                     </div>
                   </div>
                   
