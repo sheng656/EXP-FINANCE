@@ -75,7 +75,6 @@ function PartnerLogo({ name, id }: { name: string; id: string }) {
 export function PartnersSection() {
   const { locale } = useI18n();
   const scrollRef = useRef<HTMLDivElement>(null);
-  const [isPaused, setIsPaused] = useState(false);
 
   // Duplicate partners array for seamless infinite scroll
   const allPartners = [...PARTNERS, ...PARTNERS];
@@ -99,8 +98,6 @@ export function PartnersSection() {
         {/* Infinite Scroll Carousel */}
         <div 
           className="relative overflow-hidden"
-          onMouseEnter={() => setIsPaused(true)}
-          onMouseLeave={() => setIsPaused(false)}
         >
           {/* Gradient Overlays */}
           <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-white to-transparent z-10" />
@@ -111,13 +108,13 @@ export function PartnersSection() {
             ref={scrollRef}
             className="flex gap-8 md:gap-12 lg:gap-16"
             style={{
-              animation: isPaused ? 'none' : 'scroll 40s linear infinite',
+              animation: 'scroll 12s linear infinite',
             }}
           >
             {allPartners.map((partner, index) => (
               <div
                 key={`${partner.id}-${index}`}
-                className="flex-shrink-0 flex items-center justify-center px-6 py-4 hover:scale-110 transition-transform group cursor-pointer"
+                className="flex-shrink-0 flex items-center justify-center px-6 py-4 group"
                 title={partner.name}
                 style={{ minWidth: '150px' }}
               >
