@@ -4,6 +4,7 @@ import { Button } from '../ui/button';
 import { useI18n } from '../../lib/i18n-context';
 import { COMPANY_INFO } from '../../lib/company-data';
 import { WeChatModal } from '../ui/wechat-modal';
+import { HeroBackgroundImage } from '../figma/ResponsiveImage';
 
 export function Hero() {
   const { locale, t } = useI18n();
@@ -13,10 +14,9 @@ export function Hero() {
     <section id="home" className="relative bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white overflow-hidden">
       {/* Background Image - 根据语言切换 */}
       <div className="absolute inset-0">
-        <img 
+        <HeroBackgroundImage
           src={locale === 'zh' ? '/hero-bg-cn.png' : '/hero-bg-en.png'}
           alt={locale === 'zh' ? '新西兰奥克兰幸福家庭住房贷款背景图 - EXP Finance专业房贷服务' : 'Happy family home ownership in Auckland New Zealand - EXP Finance mortgage services'}
-          className="w-full h-full object-cover opacity-30"
         />
         <div className="absolute inset-0 bg-gradient-to-br from-gray-900/80 via-gray-800/75 to-gray-900/80" />
       </div>

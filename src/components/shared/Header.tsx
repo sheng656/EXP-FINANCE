@@ -3,6 +3,7 @@ import { Menu, X, Phone, Mail, MessageCircle, Globe } from 'lucide-react';
 import { Button } from '../ui/button';
 import { useI18n } from '../../lib/i18n-context';
 import { WeChatModal } from '../ui/wechat-modal';
+import { LogoImage } from '../figma/ResponsiveImage';
 import logoEnLight from 'figma:asset/516127ab8114ccc3ac2e9ee9e287d6e0b0f40818.png';
 import logoEnDark from 'figma:asset/089c4be095df59bbcd6336db2f3a396e2ab56ba2.png';
 import logoCn from 'figma:asset/fc1a1fa97a6996b5bd2f20ffe982f91816b443f2.png';
@@ -55,7 +56,7 @@ export function Header() {
         <div className="flex items-center justify-between py-4">
           {/* Logo */}
           <a href="#home" className="flex items-center">
-            <img 
+            <LogoImage
               src={currentLogo} 
               alt="EXP Finance 速捷信贷 - 新西兰专业贷款顾问" 
               className="h-10 w-auto"

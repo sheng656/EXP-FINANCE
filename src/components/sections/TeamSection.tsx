@@ -5,6 +5,7 @@ import { Button } from '../ui/button';
 import { Badge } from '../ui/badge';
 import { useI18n } from '../../lib/i18n-context';
 import { TEAM_MEMBERS } from '../../lib/company-data';
+import { TeamMemberImage } from '../figma/ResponsiveImage';
 
 export function TeamSection() {
   const { locale, t } = useI18n();
@@ -40,10 +41,9 @@ export function TeamSection() {
         
         {/* Photo */}
         <div className="relative h-80 bg-gray-200 overflow-hidden">
-          <img 
+          <TeamMemberImage
             src={member.photo}
             alt={`${member.name[locale]} - ${member.role[locale]}${member.fspNumber ? ` FSP${member.fspNumber} 持牌顾问` : ''} - EXP Finance团队成员`}
-            className="w-full h-full object-cover"
           />
           {/* FSP Badge - Only for licensed advisors */}
           {member.fspNumber && (

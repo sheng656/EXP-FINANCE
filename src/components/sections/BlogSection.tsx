@@ -4,6 +4,7 @@ import { Card, CardContent } from '../ui/card';
 import { Button } from '../ui/button';
 import { Badge } from '../ui/badge';
 import { useI18n } from '../../lib/i18n-context';
+import { BlogThumbnailImage } from '../figma/ResponsiveImage';
 
 interface BlogPost {
   id: number;
@@ -152,11 +153,12 @@ export function BlogSection() {
             >
               {/* Image */}
               <div className="h-48 overflow-hidden">
-                <img 
-                  src={post.image}
-                  alt={post.title}
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                />
+                <div className="w-full h-full hover:scale-105 transition-transform duration-300">
+                  <BlogThumbnailImage
+                    src={post.image}
+                    alt={post.title}
+                  />
+                </div>
               </div>
 
               <CardContent className="p-6">
@@ -221,10 +223,9 @@ export function BlogSection() {
               >
                 {/* Image */}
                 <div className="h-48 overflow-hidden">
-                  <img 
+                  <BlogThumbnailImage
                     src={post.image}
                     alt={post.title}
-                    className="w-full h-full object-cover"
                   />
                 </div>
 
