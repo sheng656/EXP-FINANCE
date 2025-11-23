@@ -27,7 +27,7 @@ export function ResponsiveImage({
   priority = false,
   quality = 85
 }: ResponsiveImageProps) {
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(priority); // 优先加载的图片默认已加载状态
   const [currentSrc, setCurrentSrc] = useState('');
 
   // 生成不同尺寸的图片路径
@@ -71,10 +71,22 @@ export function ResponsiveImage({
       }
     };
 
+    // 初始化时立即设置，避免闪烁
     updateImageSrc();
-    window.addEventListener('resize', updateImageSrc);
     
-    return () => window.removeEventListener('resize', updateImageSrc);
+    // 防抖处理 resize 事件
+    let timeoutId: NodeJS.Timeout;
+    const handleResize = () => {
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(updateImageSrc, 150);
+    };
+    
+    window.addEventListener('resize', handleResize);
+    
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      clearTimeout(timeoutId);
+    };
   }, [src]);
 
   // 构建 srcset 和 sizes
@@ -107,18 +119,14 @@ export function ResponsiveImage({
       <img
         src={currentSrc || src}
         alt={alt}
-        className={`${className} ${isLoaded ? 'opacity-100' : 'opacity-0'} transition-opacity duration-300`}
+        className={`${className} transition-opacity duration-200 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
         loading={priority ? 'eager' : 'lazy'}
         decoding={priority ? 'sync' : 'async'}
         onLoad={() => setIsLoaded(true)}
         srcSet={src.startsWith('http') ? buildSrcSet() : undefined}
         sizes={sizes}
+        style={{ backgroundColor: isLoaded ? 'transparent' : '#f3f4f6' }}
       />
-      
-      {/* 加载占位符 */}
-      {!isLoaded && (
-        <div className={`${className} absolute inset-0 bg-gray-200 animate-pulse`} />
-      )}
     </picture>
   );
 }
@@ -157,17 +165,17 @@ export function BlogThumbnailImage({ src, alt }: { src: string; alt: string }) {
 
 /**
  * Hero背景图专用组件
- * 全屏显示，优先加载
+ * 全屏显示，优先加载，无占位符闪烁
  */
 export function HeroBackgroundImage({ src, alt }: { src: string; alt: string }) {
   return (
-    <ResponsiveImage
+    <img
       src={src}
       alt={alt}
       className="w-full h-full object-cover opacity-30"
-      sizes="100vw"
-      priority={true}
-      quality={75}
+      loading="eager"
+      decoding="sync"
+      style={{ backgroundColor: 'transparent' }}
     />
   );
 }
