@@ -5,6 +5,7 @@ import { useI18n } from '../../lib/i18n-context';
 import { COMPANY_INFO } from '../../lib/company-data';
 import { WeChatModal } from '../ui/wechat-modal';
 import { HeroBackgroundImage } from '../figma/ResponsiveImage';
+import { trackPhoneClick, trackWeChatQR } from '../../lib/analytics';
 
 export function Hero() {
   const { locale, t } = useI18n();
@@ -88,7 +89,10 @@ export function Hero() {
               className="bg-gradient-to-r from-yellow-500 to-yellow-600 hover:from-yellow-600 hover:to-yellow-700 text-gray-900 shadow-lg shadow-yellow-500/50"
               asChild
             >
-              <a href="tel:0223145326">
+              <a 
+                href="tel:0223145326"
+                onClick={() => trackPhoneClick('022 314 5326', 'hero_section')}
+              >
                 <Phone className="w-5 h-5 mr-2" />
                 {t('cta.call')}
               </a>
@@ -97,7 +101,10 @@ export function Hero() {
               size="lg"
               variant="outline"
               className="border-white/70 text-white bg-white/5 hover:bg-white/15 hover:border-white backdrop-blur-sm"
-              onClick={() => setIsWeChatModalOpen(true)}
+              onClick={() => {
+                trackWeChatQR('wechat', 'open_modal');
+                setIsWeChatModalOpen(true);
+              }}
             >
               <MessageCircle className="w-5 h-5 mr-2" />
               {t('cta.wechat')}

@@ -7,6 +7,7 @@ import { Checkbox } from '../ui/checkbox';
 import { Label } from '../ui/label';
 import { useI18n } from '../../lib/i18n-context';
 import { COMPLIANCE } from '../../lib/compliance-config';
+import { trackFormSubmit } from '../../lib/analytics';
 import emailjs from '@emailjs/browser';
 
 export function ContactForm() {
@@ -40,6 +41,12 @@ export function ContactForm() {
         e.currentTarget,
         publicKey
       );
+
+      // Track form submission in GA4
+      trackFormSubmit('contact_form', {
+        form_location: 'contact_section',
+        language: locale
+      });
 
       setIsSubmitting(false);
       setIsSuccess(true);

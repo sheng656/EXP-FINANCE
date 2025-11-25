@@ -4,6 +4,7 @@ import { Button } from '../ui/button';
 import { useI18n } from '../../lib/i18n-context';
 import { WeChatModal } from '../ui/wechat-modal';
 import { LogoImage } from '../figma/ResponsiveImage';
+import { trackPhoneClick, trackEmailClick, trackLanguageSwitch } from '../../lib/analytics';
 import logoEnLight from 'figma:asset/516127ab8114ccc3ac2e9ee9e287d6e0b0f40818.png';
 import logoEnDark from 'figma:asset/089c4be095df59bbcd6336db2f3a396e2ab56ba2.png';
 import logoCn from 'figma:asset/fc1a1fa97a6996b5bd2f20ffe982f91816b443f2.png';
@@ -30,18 +31,32 @@ export function Header() {
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap items-center justify-between py-2 gap-4">
             <div className="flex items-center gap-6">
-              <a href="tel:0223145326" className="flex items-center gap-2 hover:text-yellow-400 transition font-bold" style={{ fontSize: '28px' }}>
+              <a 
+                href="tel:0223145326" 
+                className="flex items-center gap-2 hover:text-yellow-400 transition font-bold" 
+                style={{ fontSize: '28px' }}
+                onClick={() => trackPhoneClick('022 314 5326', 'header')}
+              >
                 <Phone className="w-7 h-7" />
                 <span className="hidden sm:inline">022 314 5326</span>
               </a>
-              <a href="mailto:hello@expfin.co.nz" className="flex items-center gap-2 hover:text-yellow-400 transition font-bold" style={{ fontSize: '28px' }}>
+              <a 
+                href="mailto:hello@expfin.co.nz" 
+                className="flex items-center gap-2 hover:text-yellow-400 transition font-bold" 
+                style={{ fontSize: '28px' }}
+                onClick={() => trackEmailClick('hello@expfin.co.nz', 'header')}
+              >
                 <Mail className="w-7 h-7" />
                 <span className="hidden sm:inline">hello@expfin.co.nz</span>
               </a>
             </div>
             
             <button
-              onClick={() => setLocale(locale === 'zh' ? 'en' : 'zh')}
+              onClick={() => {
+                const newLocale = locale === 'zh' ? 'en' : 'zh';
+                trackLanguageSwitch(locale, newLocale);
+                setLocale(newLocale);
+              }}
               className="flex items-center gap-2 hover:text-yellow-400 transition text-base font-medium"
             >
               <Globe className="w-5 h-5" />

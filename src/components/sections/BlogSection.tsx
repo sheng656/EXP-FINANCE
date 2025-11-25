@@ -5,6 +5,7 @@ import { Button } from '../ui/button';
 import { Badge } from '../ui/badge';
 import { useI18n } from '../../lib/i18n-context';
 import { BlogThumbnailImage } from '../figma/ResponsiveImage';
+import { trackBlogRead, trackPDFDownload } from '../../lib/analytics';
 
 interface BlogPost {
   id: number;
@@ -149,7 +150,11 @@ export function BlogSection() {
             <Card 
               key={post.id} 
               className="overflow-hidden hover:shadow-xl transition-all hover:-translate-y-1 cursor-pointer"
-              onClick={() => window.open(post.pdfUrl, '_blank')}
+              onClick={() => {
+                trackBlogRead(post.title, post.id, 'clicked');
+                trackPDFDownload(post.title, post.pdfUrl);
+                window.open(post.pdfUrl, '_blank');
+              }}
             >
               {/* Image */}
               <div className="h-48 overflow-hidden">
@@ -219,7 +224,11 @@ export function BlogSection() {
               <Card 
                 key={post.id} 
                 className="min-w-[85vw] snap-center overflow-hidden shadow-lg cursor-pointer"
-                onClick={() => window.open(post.pdfUrl, '_blank')}
+                onClick={() => {
+                  trackBlogRead(post.title, post.id, 'clicked');
+                  trackPDFDownload(post.title, post.pdfUrl);
+                  window.open(post.pdfUrl, '_blank');
+                }}
               >
                 {/* Image */}
                 <div className="h-48 overflow-hidden">

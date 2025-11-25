@@ -1,6 +1,7 @@
 import { X } from 'lucide-react';
 import { useEffect } from 'react';
 import { useI18n } from '@/lib/i18n-context';
+import { trackWeChatQR } from '@/lib/analytics';
 
 interface WeChatModalProps {
   isOpen: boolean;
@@ -40,12 +41,15 @@ export function WeChatModal({ isOpen, onClose, type = 'wechat' }: WeChatModalPro
   
   const currentContent = content[type];
   
-  // Close on ESC key
+  // Close on ESC key and track QR code view
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
       if (e.key === 'Escape') onClose();
     };
     if (isOpen) {
+      // Track WeChat QR code view
+      trackWeChatQR(type, 'view_qr');
+      
       window.addEventListener('keydown', handleEsc);
       document.body.style.overflow = 'hidden';
     }
@@ -53,7 +57,7 @@ export function WeChatModal({ isOpen, onClose, type = 'wechat' }: WeChatModalPro
       window.removeEventListener('keydown', handleEsc);
       document.body.style.overflow = 'unset';
     };
-  }, [isOpen, onClose]);
+  }, [isOpen, onClose, type]);
 
   if (!isOpen) return null;
 
