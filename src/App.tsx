@@ -1,4 +1,5 @@
 import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import { I18nProvider } from './lib/i18n-context';
 import { Header } from './components/shared/Header';
 import { Footer } from './components/shared/Footer';
@@ -65,8 +66,9 @@ export default function App() {
         {/* Back to Top Button */}
         <BackToTop />
         
-        {/* Vercel Analytics */}
+        {/* Vercel Analytics & Performance Monitoring */}
         <Analytics />
+        <SpeedInsights />
       </div>
     </I18nProvider>
   );
