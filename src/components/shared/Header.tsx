@@ -5,9 +5,9 @@ import { useI18n } from '../../lib/i18n-context';
 import { WeChatModal } from '../ui/wechat-modal';
 import { LogoImage } from '../figma/ResponsiveImage';
 import { trackPhoneClick, trackEmailClick, trackLanguageSwitch } from '../../lib/analytics';
-import logoEnLight from 'figma:asset/516127ab8114ccc3ac2e9ee9e287d6e0b0f40818.png';
-import logoEnDark from 'figma:asset/089c4be095df59bbcd6336db2f3a396e2ab56ba2.png';
-import logoCn from 'figma:asset/fc1a1fa97a6996b5bd2f20ffe982f91816b443f2.png';
+import logoEnLight from '/logos/logo-en-light.png';
+import logoEnDark from '/logos/logo-en-dark.png';
+import logoCn from '/logos/logo-cn.png';
 
 export function Header() {
   const { locale, setLocale, t } = useI18n();

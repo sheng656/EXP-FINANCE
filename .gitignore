@@ -59,3 +59,5 @@ optimize-images.ps1
 WEBP_INSTALLATION_GUIDE.md
 IMAGE_LOADING_FIX.md
 GA4_EVENTS_GUIDE.md
+generate-favicons.ps1
+LOGO_AND_FAVICON_UPDATE.md

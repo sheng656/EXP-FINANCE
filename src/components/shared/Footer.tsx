@@ -4,8 +4,8 @@ import { useI18n } from '../../lib/i18n-context';
 import { COMPLIANCE } from '../../lib/compliance-config';
 import { COMPANY_INFO } from '../../lib/company-data';
 import { WeChatModal } from '../ui/wechat-modal';
-import logoEnDark from 'figma:asset/089c4be095df59bbcd6336db2f3a396e2ab56ba2.png';
-import logoCnLight from 'figma:asset/fc1a1fa97a6996b5bd2f20ffe982f91816b443f2.png';
+import logoEnDark from '/logos/logo-en-dark.png';
+import logoCnLight from '/logos/logo-cn.png';
 
 export function Footer() {
   const { locale, t } = useI18n();
